@@ -6,6 +6,6 @@ def home(request):
 
 def openfile(request):
 	code_loc = request.GET['q']
-	with open('../../repos/'+code_loc) as f:
+	with open('/home/bellemanwesley/repos/'+code_loc) as f:
 		data = f.read()
 	return(render(request,'home.html',{'data':data}))
