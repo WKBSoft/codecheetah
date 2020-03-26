@@ -20,5 +20,5 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.home),
-    url(r'^edit',views.openfile,name="openfile"),
+    url(r'^openfile',views.openfile,name="openfile"),
 ]
