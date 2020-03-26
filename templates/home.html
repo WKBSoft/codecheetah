@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/docs.css">
 
 <link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/codemirror.css">
+<link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/homepage.css">
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/codemirror.js"></script>
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/matchbrackets.js"></script>
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/python.js"></script>
@@ -16,14 +17,16 @@
     <li><a class=active href="#">Python</a>
     <li><a href="info.html">Info</a>
   </ul>
+    <form action="{% url 'openfile' %}" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Open">
+    </form>
 </div>
 
-<article>
-<h2>Coding in Python</h2>
-
-    <textarea id="code"></textarea>
-
-    <script>
+    <article>
+      <h2>Coding in Python</h2>
+      <textarea id="code"></textarea>
+      <script>
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         mode: {name: "python",
                version: 3,
@@ -32,9 +35,8 @@
         indentUnit: 4,
         matchBrackets: true
     });
-
-    </script>
-  </article>
+      </script>
+    </article>
 
 </html>
 
