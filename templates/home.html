@@ -25,7 +25,14 @@
 
     <article>
       <h2>Coding in Python</h2>
-      <textarea id="code"></textarea>
+      <textarea id="code">
+        {% if data %}
+
+        {{data}}
+
+        {% endif %}
+
+      </textarea>
       <script>
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         mode: {name: "python",
