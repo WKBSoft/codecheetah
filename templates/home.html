@@ -8,36 +8,68 @@
 <link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/homepage.css">
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/codemirror.js"></script>
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/matchbrackets.js"></script>
-<script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/python.js"></script>
 <style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="https://wkbdevsite.s3.us-east-2.amazonaws.com/logo.png" alt=""></a>
+  <h1>CodeCheetah</h1><img id=logo src="https://images-na.ssl-images-amazon.com/images/I/81LswogGeoL._AC_SY450_.jpg" style="width:100px;" alt="">
 
   <ul>
-    <li><a class=active href="#">Python</a>
-    <li><a href="info.html">Info</a>
-  </ul>
+    <li><a id="home" href="{% url 'home' %}">Home</a>
+    <li><a id="python" href="{% url 'python_page' %}">Python</a>
+    <li><a id="html" href="{% url 'html_page' %}">HTML</a>
+    <li><a id="javascript" href="{% url 'javascript_page' %}">JavaScript</a>
+    <li><a id="css" href="{% url 'css_page' %}">CSS</a>
+    <li><a id="info" href="info.html">Info</a>
+</ul>
     <form action="{% url 'openfile' %}" method="get">
         <input type="text" name="q">
+	<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
         <input type="submit" value="Open">
     </form>
+<div class="btn-group-vertical" role="group" aria-label="...">
+  <button type="button" class="btn btn-default">1</button>
+  <button type="button" class="btn btn-default">2</button>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
 </div>
-
+</div>
     <article>
-      <h2>Coding in Python</h2>
-      <textarea id="code">{% if data %}{{data}}{% endif %}
-      </textarea>
-      <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: {name: "python",
-               version: 3,
-               singleLineStringErrors: false},
-        lineNumbers: true,
-        indentUnit: 4,
-        matchBrackets: true
-    });
-      </script>
-    </article>
-
+      <form action="savefile" method="get">
+      <textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
+      <input type="text" name="q">
+	<input class="btn btn-primary" type="submit" value="Save" />
+	<input class="btn btn-primary" type="submit" name="add_text" value="Deploy" />     
+      </form>
+{% if page_content %}
+{{page_content|safe}}
+{% endif %}
+	</article>
+<script>
+document.getElementById("home").className = "none";
+document.getElementById("python").className = "none";
+document.getElementById("html").className = "none";
+document.getElementById("javascript").className = "none";
+document.getElementById("css").className = "none";
+document.getElementById("info").className = "none";
+var active_page = "{% if active_page %}{{active_page}}{% endif %}"
+document.getElementById(active_page).className = "active";
+</script>
 </html>
 

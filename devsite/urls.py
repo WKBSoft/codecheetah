@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+
 from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.home),
+    url(r'^$',views.home,name="home"),
     url(r'^openfile',views.openfile,name="openfile"),
+    url(r'^savefile',views.savefile,name="savefile"),
+    url(r'^python_page/$',views.python_page,name="python_page"),
+    url(r'^javascript_page/$',views.javascript_page,name="javascript_page"),
+    url(r'^html_page/$',views.html_page,name="html_page"),
+    url(r'^css_page/$',views.css_page,name="css_page"),
 ]
