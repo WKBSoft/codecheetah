@@ -34,13 +34,6 @@
 	<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
         <input type="submit" value="Open">
     </form>
-
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>
-
 </div>
     <article>
       <form action="savefile" method="get">
@@ -48,7 +41,7 @@
         <input type="text" name="q">
 	<input class="btn btn-primary" type="submit" value="Save" />
       </form>
-        <input class="btn btn-primary" type="button" name="add_text" value="Deploy" data-toggle="modal" data-targe="#exampleModal" />
+        <input class="btn btn-primary" type="button" name="add_text" value="Deploy"/>
 {% if page_content %}
 {{page_content|safe}}
 {% endif %}
@@ -63,33 +56,7 @@ document.getElementById("info").className = "none";
 var active_page = "{% if active_page %}{{active_page}}{% endif %}"
 document.getElementById(active_page).className = "active";
 
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
 </script>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Some stuff here.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 </html>
 
