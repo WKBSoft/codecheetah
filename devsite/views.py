@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import os
 import requests
 
 def get_code_format(active_page):
@@ -21,6 +22,10 @@ def savefile(request):
 	code_loc = request.GET['q']
 	with open("/home/bellemanwesley/repos/"+code_loc,'w+') as f:
 		f.write(my_code)
+	repo_loc = '/home/bellemanwesley/repos/' + code_loc.split('/')[0]
+	os.system('git -C '+repo_loc+' add .')
+	os.system('git -C '+repo_loc+" commit -m 'auto commit'")
+	os.system('git -C '+repo_loc+' push origin master')
 	return(render(request,'home.html',{'data':my_code}))
 
 def python_page(request):
