@@ -1,0 +1,13 @@
+[Unit]
+Description=Django Application for My Development Environment
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/bellemanwesley/devsite/manage.py runserver 172.31.20.208:8000
+StandardInput=tty-force
+User=bellemanwesley
+
+[Install]
+WantedBy=multi-user.target
