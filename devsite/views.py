@@ -26,8 +26,8 @@ def savefile(request):
 	os.system('git -C '+repo_loc+' add .')
 	os.system('git -C '+repo_loc+" commit -m 'auto commit'")
 	os.system('git -C '+repo_loc+' push origin master')
-    active_page = request.GET['active']
-    return(render(request,'home.html',{'data':my_code,'active_page':active_page,'page_content':get_code_format(active_page)}))
+	active_page = request.GET['active']
+	return(render(request,'home.html',{'data':my_code,'active_page':active_page,'page_content':get_code_format(active_page)}))
 
 def python_page(request):
 	active_page = 'python'
@@ -35,17 +35,17 @@ def python_page(request):
 
 def javascript_page(request):
 	active_page = 'javascript'
-    return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
+	return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
 
 def html_page(request):
 	active_page = 'html'
-    return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
+	return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
 
 def css_page(request):
 	active_page = 'css'
-    return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
+	return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
 
 def deploy_code(request):
-    deploy_result = requests.get('http://localhost:5000')
-    active_page = request.GET['active']
-    return(render(request,'home.html',{'deploy_result':deploy_result.text,'active_page':active_page}))
+	deploy_result = requests.get('http://localhost:5000')
+	active_page = request.GET['active']
+	return(render(request,'home.html',{'deploy_result':deploy_result.text,'active_page':active_page}))
