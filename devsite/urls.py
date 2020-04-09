@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^javascript_page/$',views.javascript_page,name="javascript_page"),
     url(r'^html_page/$',views.html_page,name="html_page"),
     url(r'^css_page/$',views.css_page,name="css_page"),
+    url(r'^deploy_code',views.deploy_code,name="deploy_code"),
 ]

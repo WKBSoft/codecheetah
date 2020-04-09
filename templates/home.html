@@ -43,10 +43,20 @@
         <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
 	<input class="btn btn-primary" type="submit" value="Save" />
       </form>
-        <input class="btn btn-primary" type="button" name="add_text" value="Deploy"/>
+	<form action="deploy_code" method="get">
+        <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
+        <input class="btn btn-primary" type="submit" value="Deploy"/>
+	</form>
+<p>
+{% if deploy_result %}
+{{deploy_result}}
+{% endif %}
+</p>
+<p>
 {% if page_content %}
 {{page_content|safe}}
 {% endif %}
+</p>
 	</article>
 <script>
 document.getElementById("home").className = "none";

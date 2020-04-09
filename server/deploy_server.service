@@ -5,7 +5,7 @@ Conflicts=getty@tty1.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /home/bellemanwesley/devsite/manage.py runserver 172.31.20.208:8000
+ExecStart=/usr/bin/python /home/bellemanwesley/devsite/server/deploy_server.py
 StandardInput=tty-force
 User=bellemanwesley
 

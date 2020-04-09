@@ -45,3 +45,6 @@ def css_page(request):
 	active_page = 'css'
         return(render(request,'home.html',{'page_content':get_code_format(active_page),'active_page':active_page}))
 
+def deploy_code(request):
+        deploy_result = requests.get('http://localhost:5000')
+        return(render(request,'home.html',{'deploy_result':deploy_result.text}))
