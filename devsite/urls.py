@@ -23,9 +23,6 @@ urlpatterns = [
     url(r'^$',views.home,name="home"),
     url(r'^openfile',views.openfile,name="openfile"),
     url(r'^savefile',views.savefile,name="savefile"),
-    url(r'^python_page/$',views.python_page,name="python_page"),
-    url(r'^javascript_page/$',views.javascript_page,name="javascript_page"),
-    url(r'^html_page/$',views.html_page,name="html_page"),
-    url(r'^css_page/$',views.css_page,name="css_page"),
+    url(r'^code',views.code_page,name="code_page"),
     url(r'^deploy_code',views.deploy_code,name="deploy_code"),
 ]
