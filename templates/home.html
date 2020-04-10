@@ -24,7 +24,7 @@
 
   <ul>
     <li><a id="home" href="{% url 'home' %}">Home</a>
-    <li><a id="python" href="{% url 'code_page' %}">Code</a>
+    <li><a id="code_page" href="{% url 'code' %}">Code</a>
     <li><a id="info" href="info.html">Info</a>
 </ul>
     <form action="{% url 'openfile' %}" method="get">
@@ -52,10 +52,7 @@
 	</article>
 <script>
 document.getElementById("home").className = "none";
-document.getElementById("python").className = "none";
-document.getElementById("html").className = "none";
-document.getElementById("javascript").className = "none";
-document.getElementById("css").className = "none";
+document.getElementById("code_page").className = "none";
 document.getElementById("info").className = "none";
 var active_page = "{% if active_page %}{{active_page}}{% endif %}"
 document.getElementById(active_page).className = "active";
