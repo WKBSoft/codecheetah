@@ -27,7 +27,7 @@ def savefile(request):
 	os.system('git -C '+repo_loc+" commit -m 'auto commit'")
 	os.system('git -C '+repo_loc+' push origin master')
 	active_page = request.GET['active']
-	return(render(request,'home.html',{'data':my_code,'active_page':active_page,'page_content':get_code_format(active_page)}))
+	return(render(request,'home.html',{'data':my_code,'active_page':active_page,'page_content':get_code_format(active_page),'default_save':code_loc}))
 
 def python_page(request):
 	active_page = 'python'
