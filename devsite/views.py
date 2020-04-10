@@ -48,4 +48,4 @@ def css_page(request):
 def deploy_code(request):
 	deploy_result = requests.get('http://localhost:5000')
 	active_page = request.GET['active']
-	return(render(request,'home.html',{'deploy_result':deploy_result.text,'active_page':active_page}))
+	return(render(request,'home.html',{'page_content':get_code_format(active_page),'deploy_result':deploy_result.text,'active_page':active_page}))
