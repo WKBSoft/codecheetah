@@ -39,7 +39,7 @@
     <article>
       <form action="savefile" method="get">
       <textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
-        <input type="text" name="q">
+        <input type="text" name="q">{% if default_save %}{{default_save}}{% endif %}</input>
         <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
 	<input class="btn btn-primary" type="submit" value="Save" />
       </form>
