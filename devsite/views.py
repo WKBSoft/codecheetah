@@ -6,7 +6,7 @@ def get_code_format(code_type):
 	extension_map = {'py':'python','js':'javascript'}
 	if code_type in extension_map:
 		code_type = extension_map[code_type]
-		page_content = requests.get('https://wkbdevsite.s3.us-east-2.amazonaws.com/'+code_type+'_content.html')
+	page_content = requests.get('https://wkbdevsite.s3.us-east-2.amazonaws.com/'+code_type+'_content.html')
 	return page_content.text
 
 def home(request):
