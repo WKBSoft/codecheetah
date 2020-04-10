@@ -15,7 +15,7 @@ def openfile(request):
 	with open('/home/bellemanwesley/repos/'+code_loc) as f:
 		data = f.read()
 	active_page = request.GET['active']
-	return(render(request,'home.html',{'data':data,'active_page':active_page,'page_content':get_code_format(active_page)}))
+	return(render(request,'home.html',{'data':data,'active_page':active_page,'page_content':get_code_format(active_page),'default_save':code_loc}))
 
 def savefile(request):
 	my_code = request.GET['code']
