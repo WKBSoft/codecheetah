@@ -16,9 +16,10 @@ def home(request):
             my_dir = os.path.join(root,name)
             my_dir_list = my_dir.split("/")
             del my_dir_list[0:4]
-            if my_dir_list[1] != ".git":
-            	my_dir = "/".join(my_dir_list)
-            	dirs_list.append(my_dir)
+	    if len(my_dir_list) > 1:
+                if my_dir_list[1] != ".git":
+            	    my_dir = "/".join(my_dir_list)
+            	    dirs_list.append(my_dir)
     return(render(request,'home.html',{'active_page':'code_page','repo_tree':dirs_list}))
 
 def openfile(request):
