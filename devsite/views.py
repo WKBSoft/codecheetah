@@ -10,7 +10,7 @@ def get_code_format(code_type):
     return page_content.text
 
 def home(request):
-    return(render(request,'home.html',{'active_page':'home'}))
+    return(render(request,'home.html',{'active_page':'code_page'}))
 
 def openfile(request):
     code_loc = request.GET['q']
@@ -33,9 +33,6 @@ def savefile(request):
     os.system('git -C '+repo_loc+' push origin master')
     active_page = request.GET['active']
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
-
-def code_page(request):
-    return(render(request,'home.html',{'active_page':'code_page'}))
 
 def deploy_code(request):
     deploy_result = requests.get('http://localhost:5000')
