@@ -22,7 +22,7 @@ def home(request):
             	    dirs_list.append(my_dir)
         else:
             my_dir = "/".join(my_dir_list)
-           	dirs_list.append(my_dir)
+            dirs_list.append(my_dir)
     return(render(request,'home.html',{'active_page':'code_page','repo_tree':dirs_list}))
 
 def openfile(request):
