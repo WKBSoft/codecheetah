@@ -16,7 +16,7 @@ def home(request):
             my_dir = os.path.join(root,name)
             my_dir_list = my_dir.split("/")
             del my_dir_list[0:4]
-	    if len(my_dir_list) > 1:
+	    if len(my_dir_list) > 2:
                 if my_dir_list[1] != ".git":
             	    my_dir = "/".join(my_dir_list)
             	    dirs_list.append(my_dir)
