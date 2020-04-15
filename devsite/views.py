@@ -10,11 +10,16 @@ def get_code_format(code_type):
     return page_content.text
 
 def home(request):
-    my_repos = []
+    dirs_list = []
     for root, dirs, files in os.walk("/home/ec2-user/repos", topdown=False):
         for name in dirs:
-            my_repos.append(os.path.join(root, name))
-    return(render(request,'home.html',{'active_page':'code_page','repos_list':my_repos}))
+            my_dir = os.path.join(root,name)
+            my_dir_list = my_dir.split("/")
+            del my_dir_list[0:4]
+            if my_dir_list[1] != ".git":
+            	my_dir = "/".join(my_dir_list)
+            	dirs_list.append(my_dir)
+    return(render(request,'home.html',{'active_page':'code_page','repo_tree':dirs_list}))
 
 def openfile(request):
     code_loc = request.GET['q']
