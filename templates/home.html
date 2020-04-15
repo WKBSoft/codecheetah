@@ -23,11 +23,10 @@
   <h1>CodeCheetah</h1><img id=logo src="https://images-na.ssl-images-amazon.com/images/I/81LswogGeoL._AC_SY450_.jpg" style="width:100px;" alt="">
 
   <ul>
-    <li><a id="home" href="{% url 'home' %}">Home</a>
-    <li><a id="code_page" href="{% url 'code_page' %}">Code</a>
-    <li><a id="info" href="info.html">Info</a>
-</ul>
-    <form action="{% url 'openfile' %}" method="get">
+    <li><a id="home" href="/home">Home</a>
+    <li><a id="code_page" href="/code_page">Code</a>
+  </ul>
+    <form action="/openfile" method="get">
         <input type="text" name="q">
 	<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
         <input type="submit" value="Open">
