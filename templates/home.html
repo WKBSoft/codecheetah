@@ -18,7 +18,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div id=nav>
+
+<div class=container>
+  <div class=row>
+    <div class=col>
   <h1>CodeCheetah</h1><img id=logo src="https://images-na.ssl-images-amazon.com/images/I/81LswogGeoL._AC_SY450_.jpg" style="width:100px;" alt="">
 
   <ul>
@@ -56,8 +59,9 @@
   {% endfor %}
 </div>
 {% endif %}
-
+  </div>
 </div>
+<div class=col-6>
     <article>
       <form action="savefile" method="get">
       <textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
@@ -75,6 +79,11 @@
 {% endif %}
 </p>
 	</article>
+</div>
+<div class=col>
+</div>
+</div>
+</div>
 <script>
 document.getElementById("code_page").className = "none";
 document.getElementById("my_network").className = "none";
