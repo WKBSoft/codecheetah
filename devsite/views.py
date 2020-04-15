@@ -20,7 +20,7 @@ def openfile(request):
     code_loc = request.GET['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
-    with open('/home/bellemanwesley/repos/'+code_loc) as f:
+    with open('/home/ec2-user/repos/'+code_loc) as f:
         data = f.read()
     return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
 
@@ -29,9 +29,9 @@ def savefile(request):
     code_loc = request.GET['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
-    with open("/home/bellemanwesley/repos/"+code_loc,'w+') as f:
+    with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
         f.write(my_code)
-    repo_loc = '/home/bellemanwesley/repos/' + code_loc.split('/')[0]
+    repo_loc = '/home/ec2-user/repos/' + code_loc.split('/')[0]
     os.system('git -C '+repo_loc+' add .')
     os.system('git -C '+repo_loc+" commit -m 'auto commit'")
     os.system('git -C '+repo_loc+' push origin master')
