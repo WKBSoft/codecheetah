@@ -29,7 +29,7 @@ SECURE_SSL_REDIRECT = False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'ec2-18-219-182-64.us-east-2.compute.amazonaws.com','dev.io']
+ALLOWED_HOSTS = [u'cheetah.link']
 
 
 # Application definition
