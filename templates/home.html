@@ -27,10 +27,15 @@
     <li><a id="my_network" href="/my_network">My Network</a>
   </ul>
     <form action="/openfile" method="get">
-        <input type="text" name="q">
-	<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
-        <input type="submit" value="Open">
+      <input type="text" name="q">
+      <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
+  	  <input type="submit" value="Open">
     </form>
+  	<form action="/savefile" method="get">
+      <input type="text" name="q" hidden value="{% if default_save %}{{default_save}}{% endif %}"></input>
+      <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
+	  <input class="btn btn-primary" type="submit" value="Save" />
+	</form>  
 </div>
     <article>
       <form action="savefile" method="get">
@@ -55,9 +60,9 @@ document.getElementById("my_network").className = "none";
 var active_page = "{% if active_page %}{{active_page}}{% endif %}";
 document.getElementById(active_page).className = "active";
 
-var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+/*var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
-});
+});*/
   
 </script>
 
