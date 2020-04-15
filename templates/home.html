@@ -36,6 +36,11 @@
       <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
 	  <input class="btn btn-primary" type="submit" value="Save" />
 	</form>  
+	{% if repos_list %}
+		{% for repo in repos_list %}
+			<li>{repo}
+        {% endfor %}
+    {% endif %}
 </div>
     <article>
       <form action="savefile" method="get">
