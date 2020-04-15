@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-		"/home/bellemanwesley/devsite/templates"
+		"/home/ec2-user/devsite/templates"
 	],
         'APP_DIRS': True,
         'OPTIONS': {
