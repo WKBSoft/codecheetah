@@ -23,8 +23,8 @@
   <h1>CodeCheetah</h1><img id=logo src="https://images-na.ssl-images-amazon.com/images/I/81LswogGeoL._AC_SY450_.jpg" style="width:100px;" alt="">
 
   <ul>
-    <li><a id="home" href="/">Home</a>
     <li><a id="code_page" href="/code_page">Code</a>
+    <li><a id="my_network" href="/my_network">My Network</a>
   </ul>
     <form action="/openfile" method="get">
         <input type="text" name="q">
@@ -50,11 +50,10 @@
 </p>
 	</article>
 <script>
-document.getElementById("home").className = "none";
 document.getElementById("code_page").className = "none";
-var active_page = "{% if active_page %}{{active_page}}{% endif %}"
+document.getElementById("my_network").className = "none";
+var active_page = "{% if active_page %}{{active_page}}{% endif %}";
 document.getElementById(active_page).className = "active";
-
 </script>
 
 </html>
