@@ -20,7 +20,7 @@ def home(request):
                 if my_dir_list[1] != ".git":
             	    my_dir = "/".join(my_dir_list)
             	    dirs_list.append(my_dir)
-            else:
+        else:
                 my_dir = "/".join(my_dir_list)
                 dirs_list.append(my_dir)
     return(render(request,'home.html',{'active_page':'code_page','repo_tree':dirs_list}))
