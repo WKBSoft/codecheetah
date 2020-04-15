@@ -14,7 +14,7 @@ def home(request):
     for root, dirs, files in os.walk(".", topdown=False):
         for name in dirs:
             my_repos.append(os.path.join(root, name))
-    return(render(request,'home.html',{'active_page':'code_page';'repos_list':my_repos}))
+    return(render(request,'home.html',{'active_page':'code_page','repos_list':my_repos}))
 
 def openfile(request):
     code_loc = request.GET['q']
