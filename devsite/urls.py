@@ -23,6 +23,5 @@ urlpatterns = [
     url(r'^$',views.home,name="home"),
     url(r'^openfile',views.openfile,name="openfile"),
     url(r'^savefile',views.savefile,name="savefile"),
-    url(r'^code',views.code_page,name="code_page"),
     url(r'^deploy_code',views.deploy_code,name="deploy_code"),
 ]
