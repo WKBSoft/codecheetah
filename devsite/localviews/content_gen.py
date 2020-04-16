@@ -9,15 +9,13 @@ def list_subpaths(path):
             my_path_list = my_path.split("/")
             del my_path_list[0:path_length]
 	    if len(my_path_list) > 1:
-            if my_path_list[1] != ".git":
-                my_path = "/".join(my_path_list)
-                result_list.append(my_path)
-        else:
-            my_path = "/".join(my_path_list)
-            result_list.append(my_path)
-    return result_list
+                if my_path_list[1] != ".git":
+                    result_list.append(my_path_list)
+            else:
+                result_list.append(my_path_list)
+    return result_list.sort(key=len)
 
-print dir_dict("/home/ec2-user/repos")
+print list_subpaths("/home/ec2-user/repos")
             
             
 accordian = '''		
