@@ -13,7 +13,8 @@ def list_subpaths(path):
                     result_list.append(my_path_list)
             else:
                 result_list.append(my_path_list)
-    return result_list.sorted(key=len)
+    result_list.sort(key=len)
+    return result_list
 
 print list_subpaths("/home/ec2-user/repos")
             
