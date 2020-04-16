@@ -3,7 +3,7 @@ import os
 import requests
 import sys
 sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
-import content_gen
+#import content_gen
 
 def get_code_format(code_type):
     extension_map = {'py':'python','js':'javascript'}
