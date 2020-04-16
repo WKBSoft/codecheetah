@@ -41,7 +41,7 @@
 		{% if repo_tree %}
   			<div class="accordion" id="accordionExample">
               {% for repo in repo_tree %}
-              	<p><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapseOne">
+              	<p><button class="btn btn-light btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapse{{forloop.counter}}" aria-expanded="true" aria-controls="collapseOne">
                    {{repo}}
                 </button>
               	<div id="collapse{{forloop.counter}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
