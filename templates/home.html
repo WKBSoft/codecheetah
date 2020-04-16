@@ -51,8 +51,8 @@
   			</div>
 		{% endif %}
   		</div>
-		<div class="col-8">
-    		<!--<article>-->
+		<div class="col-7">
+          <br>
       			<form action="savefile" method="get">
      				<textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
         			<input type="text" name="q" value="{% if default_save %}{{default_save}}{% endif %}"></input>
@@ -68,7 +68,6 @@
 					{{page_content|safe}}
 					{% endif %}
 				</p>
-			<!--</article>-->
 		</div>
 		<div class=col>
 		</div>
