@@ -2,7 +2,7 @@ import os
 
 def list_subpaths(path):
     result_list = []
-  	path_length = len(path.split("/"))
+    path_length = len(path.split("/"))
     for root, dirs, files in os.walk(path, topdown=False):
         for name in dirs + files:
             my_path = os.path.join(root,name)
