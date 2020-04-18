@@ -37,8 +37,8 @@ def openfile(request):
     return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
 
 def savefile(request):
-    my_code = request.GET['code']
-    code_loc = request.GET['q']
+    my_code = request.POST.get['code']
+    code_loc = request.POST.get['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
     with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
@@ -47,7 +47,7 @@ def savefile(request):
     os.system('git -C '+repo_loc+' add .')
     os.system('git -C '+repo_loc+" commit -m 'auto commit'")
     os.system('git -C '+repo_loc+' push origin master')
-    active_page = request.GET['active']
+    active_page = request.POST.get['active']
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
 
 def deploy_code(request):
