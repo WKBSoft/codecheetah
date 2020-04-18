@@ -48,11 +48,15 @@
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
           <input type="submit" value="Open">
         </form>
-        <form action="/savefile" method="get">
+        <form action="/savefile" method="post">
           <input type="text" name="q" hidden value="{% if default_save %}{{default_save}}{% endif %}"></input>
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
           <input class="btn btn-primary" type="submit" value="Save" />
         </form>  
+  		<form action="deploy_code" method="get">
+        		<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
+        		<input class="btn btn-primary" type="submit" value="Deploy"/>
+		</form>
 
 		{% if repo_tree %}
   			<div class="accordion" id="accordionExample">
@@ -76,10 +80,6 @@
 					{% csrf_token %}
                     <input class="btn btn-primary" type="submit" value="Save" />
       			</form>
-				<form action="deploy_code" method="get">
-        			<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
-        			<input class="btn btn-primary" type="submit" value="Deploy"/>
-				</form>
 				<p>
 					{% if page_content %}
 					{{page_content|safe}}
