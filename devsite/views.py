@@ -47,8 +47,6 @@ def savefile(request):
     os.system('git -C '+repo_loc+' add .')
     os.system('git -C '+repo_loc+" commit -m 'auto commit'")
     os.system('git -C '+repo_loc+' push origin master')
-    active_page = request.POST['active']
-    return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
 
 def deploy_code(request):
     deploy_result = requests.get('http://localhost:5000')
