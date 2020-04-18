@@ -1,5 +1,5 @@
 import os
-#comment
+
 def list_subpaths(path):
     files_list = []
     dirs_list = []
