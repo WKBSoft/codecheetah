@@ -2,7 +2,7 @@ import os
 
 accordian = '''		
 <div class="accordion" id="accordian_path_top">
-	<button class="btn btn-light btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseOne">
     	<!-- collapse link -->
     </button>
     <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
