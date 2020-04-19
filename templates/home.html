@@ -43,11 +43,6 @@
 <div class=container-fluid>
   <div class=row>
     <div class="col text-right">
-      	<form action="/openfile" method="get">
-          <input type="text" name="q">
-          <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
-          <input type="submit" value="Open">
-        </form>
         <form action="/savefile" method="post">
           <input type="text" name="q" hidden value="{% if default_save %}{{default_save}}{% endif %}"></input>
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
