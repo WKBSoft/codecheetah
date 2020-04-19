@@ -39,34 +39,21 @@ def list_subpaths(path):
     dirs_list.sort(key=len)
     files_list.sort(key=len)
     return [dirs_list,files_list]
-
-def get_subs(path, paths_list):
-    pot_subs = list(filter(lambda y: len(y) == len(path)+1, paths_list))
-    subs = []
-    for x in pot_subs:
-        ifsub = True
-        for i in range(len(x)):
-            if x[i] != path[i]:
-                ifsub = False
-        if ifsub == True:
-            subs.append(x)
-    return subs
     
 def build_tree(path_list):
     dirs_list = path_list[0]
     files_list = path_list[1]
-    html = ""
-    for i in range(len(dirs_list[len(dirs_list)-1])):
-        dirs = list(filter(lambda x: len(x) == i+1, dirs_list))
-        if html == "":
-            for x in dirs:
-                html += accordian.replace("<!-- collapse link -->",x[i])
-                #subdirs = get_subs(x,dirs_list)
+    tree = {}
+    for i in range(len(dirs_list[len(dirs_list)])):
+        i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
+        if tree = {}:
+            for x in i_dirs:
+                tree.update({x[i]:{"type":"dir","subs":{}}})
         else:
-            for x in dirs:
-                html = html.replace("<!-- collapse content -->",accordian)
-                html = html.replace("<!-- collapse link -->",x[i])
-        return html
+            for x in i_dirs:
+                tree[x-1][subs].update({x[i]:{"type":"dir","subs":{}}})
+    return tree
+        
     
 
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
