@@ -42,7 +42,7 @@
 
 <div class=container-fluid>
   <div class="row flex-xl-nowrap">
-    <div class="col text-right bd-sidebar">
+    <div class="col-md-3 col-xl-2 bd-sidebar text-right">
         <form action="/savefile" method="post">
           <input type="text" name="q" hidden value="{% if default_save %}{{default_save}}{% endif %}"></input>
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
