@@ -92,7 +92,6 @@ def write_html(tree):
                     print y
                     loc_loc_html = accordian.replace("<!-- collapse link -->",y)
                     loc_loc_html = loc_loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"/"+y+"-->")
-                    print loc_loc_html
                     loc_html += loc_loc_html
             html += loc_html
         i += 1
