@@ -10,7 +10,7 @@ def list_subpaths(path):
             my_dir_list = my_dir.split("/")
             del my_dir_list[0:path_length]           
 	    if len(my_dir_list) > 1:
-                if my_dir_list[1] != ".git":
+                if my_dir_list[0] != ".git":
                     dirs_list.append(my_dir_list)
             else:
                 dirs_list.append(my_dir_list)
