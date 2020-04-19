@@ -46,7 +46,7 @@ def build_tree(path_list):
     files_list = path_list[1]
     html = ""
     for i in range(len(dirs_list[len(dirs_list)-1])):
-        dirs = list(filter(lambda x: len(x) == i, dirs_list))
+        dirs = list(filter(lambda x: len(x) == i+1, dirs_list))
         if html == "":
             for x in dirs:
                 html += accordian.replace("<!-- collapse link -->",x)
