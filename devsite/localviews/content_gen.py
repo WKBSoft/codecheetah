@@ -50,7 +50,8 @@ def build_tree(path_list):
         for x in i_dirs:
             path = "/".join(x[0:i])
             if path in tree:
-                tree[path]["dirs"].append(x[i])
+                if x[i] not in tree[path]["dirs"]:
+                    tree[path]["dirs"].append(x[i])
             else:
                 tree.update({path:{"dirs":[x[i]]}})
     return tree
