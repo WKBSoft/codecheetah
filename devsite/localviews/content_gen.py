@@ -83,6 +83,7 @@ def write_html(tree):
             loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"-->")
             html += loc_html
     while len(level) > 0:
+        print level
         for x in level:
             loc_html = ""
             if "dirs" in tree[x]:
