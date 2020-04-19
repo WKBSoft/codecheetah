@@ -70,7 +70,7 @@ def build_tree(path_list):
 def write_html(tree):
     html = ""
     top_level = list(filter(lambda x: len(x.split("/")) == 1,tree))
-    if html = "":
+    if html == "":
         for x in top_level:
             html += accordian.replace("<!-- collapse link -->",x)
     return html
