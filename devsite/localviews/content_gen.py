@@ -51,6 +51,7 @@ def build_tree(path_list):
             path = "/".join(x[0:i])
             level_tree = {"path":x[i]}
         tree.update({i:level_tree})
+    return tree
         
         
 ['A','B','C','D']
