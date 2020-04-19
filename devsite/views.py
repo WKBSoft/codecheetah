@@ -6,7 +6,7 @@ sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
 #import content_gen
 
 def landing_page(request):
-    return(render(request,landing.html,{}))
+    return(render(request,"landing.html",{}))
 
 def get_code_format(code_type):
     extension_map = {'py':'python','js':'javascript'}
