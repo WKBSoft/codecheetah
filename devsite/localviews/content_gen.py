@@ -49,15 +49,20 @@ def build_tree(path_list):
         print i_dirs
         for x in i_dirs:
             path = "/".join(x[0:i])
-            tree.update({path:x[i]})
+            if path in tree:
+                tree[path]["dirs"].append(x[i])
+            else:
+                tree.update({path:{"dirs":[x[i]]}})
     return tree
-        
+
+def write_html(tree):
+    pass
+
 '''        
 ['A','B','C','D']
 ['A','X','C','D']
 ['A','B','Y','D']
-{'ABC':'D','AXC':'D','ABY':'D'}
-{'A':{'B':{'C':{'D'},'Y':{'D'}},'X':{'C':'D':{}}}}
+['A'
     '''
 test_list = [
     [
