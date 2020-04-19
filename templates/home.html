@@ -31,10 +31,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/my_network">My Network</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="www.google.com">{% if random_thing %}{{random_thing}}{% endif %}</a>
-      </li>                                     
+      </li>                                    
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -60,7 +57,6 @@
         		<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
         		<input class="btn btn-primary" type="submit" value="Deploy"/>
 		</form>
-		<p> Yes something can go here </p>
 		{% if repo_accordion %}
   		{{repo_accordion|safe}}
 		{% endif %}
