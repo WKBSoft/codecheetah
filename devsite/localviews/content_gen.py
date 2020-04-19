@@ -110,8 +110,8 @@ def write_html(tree):
     return html
 
 def path_accordion(path):
-    my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
-    my_tree = build_tree(test_list)
+    path_list = list_subpaths(path)
+    my_tree = build_tree(path_list)
     return write_html(my_tree)            
             
 print path_accordion("/home/ec2-user/repos/devsite")
