@@ -12,7 +12,7 @@ accordion = '''
 '''
 
 file_button = '''		
-	<button class="btn btn-light btn-block btn-sm" type="button">
+	<button class="btn btn-light btn-block btn-sm" type="button" href="openfile/?q=">
     	<!-- file name -->
     </button>
 '''
@@ -91,6 +91,9 @@ def write_html(tree):
             if "files" in tree[x]:
                 for y in tree[x]["files"]:
                     loc_loc_html = file_button.replace("<!-- file name -->",y)
+                    file_link = x + "/" + y
+                    file_link = file_link.replace("/","%2F")
+                    loc_loc_html = loc_loc_html.replace("openfile/?q=","openfile/?q="+file_link+"&active=code_page")
                     loc_html += loc_loc_html
             if "dirs" in tree[x]:
                 for y in tree[x]["dirs"]:
