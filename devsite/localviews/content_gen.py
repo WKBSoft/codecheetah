@@ -53,8 +53,6 @@ def build_tree(path_list):
                     tree[path]["dirs"].append(x[i])
             else:
                 tree.update({path:{"dirs":[x[i]]}})
-    print files_list
-    print range(1,len(files_list[len(files_list)-1]))
     for i in range(1,len(files_list[len(files_list)-1])):
         i_files = list(filter(lambda x: len(x) == i+1,files_list))
         for x in i_files:
