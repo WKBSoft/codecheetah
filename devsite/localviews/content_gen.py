@@ -48,10 +48,10 @@ def build_tree(path_list):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
         if tree == {}:
             for x in i_dirs:
-                tree.update({x[i]:{"type":"dir","subs":{}}})
+                tree.update({x[i]:{"type":"dir","content":{}}})
         else:
             for x in i_dirs:
-                tree[x[i-1]]["subs"].update({x[i]:{"type":"dir","subs":{}}})
+                tree[x[i-1]]["content"].update({x[i]:{"type":"dir","content":{}}})
     for i in range(len(files_list[len(files_list)-1])):
         i_files = list(filter(lambda x: len(x) == i+1,files_list))
         if i == 0:
@@ -59,7 +59,7 @@ def build_tree(path_list):
                 tree.update({x[i]:{"type":"file"}})
         else:
             for x in i_dirs:
-                tree[x[i-1]]["subs"].update({x[i]:{"type":"file"}})                
+                tree[x[i-1]]["content"].update({x[i]:{"type":"file"}})                
     return tree
         
     
