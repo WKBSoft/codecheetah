@@ -59,7 +59,7 @@ def build_tree(path_list):
         print i_files
         for x in i_files:
             path = "/".join(x[0:i])
-            if path in tree:
+            if "files" in tree[path]:
                 if x[i] not in tree[path]["files"]:
                     tree[path]["files"].append(x[i])
             else:
@@ -93,10 +93,10 @@ test_list = [
         ['A','B','C','D','E'],
         ['A','B','C','D','F']
 ]
-my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
-print my_path_list
+#my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
+#print my_path_list
 print build_tree(test_list)
-print "A".split("/")
+#print "A".split("/")
             
             
 
