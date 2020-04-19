@@ -55,9 +55,12 @@ def build_tree(path_list):
             for x in dirs:
                 html = html.replace("<!-- collapse content -->",accordian)
                 html = html.replace("<!-- collapse link -->",x[i])
+        return html
     
 
-print list_subpaths("/home/ec2-user/repos/devsite")
+my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
+print my_path_list
+print build_tree(my_path_list)
             
             
 accordian = '''		
