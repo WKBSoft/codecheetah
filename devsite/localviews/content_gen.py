@@ -85,12 +85,14 @@ def write_html(tree):
     while len(level) > 0:
         print level
         for x in level:
+            print x
             loc_html = ""
             if "dirs" in tree[x]:
                 for y in tree[x]["dirs"]:
                     print y
                     loc_loc_html = accordian.replace("<!-- collapse link -->",y)
                     loc_loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+y+"-->")
+                    print loc_loc_html
                     loc_html += loc_loc_html
             html += loc_html
         i += 1
