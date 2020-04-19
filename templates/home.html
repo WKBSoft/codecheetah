@@ -48,8 +48,8 @@
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
           <input class="btn btn-primary" type="submit" value="Save" />
         </form>  
-  		<form action="/deploy_code" method="get">
-        		<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
+  		<form action="/deploy_code" method="post">
+                {% csrf_token %}
         		<input class="btn btn-primary" type="submit" value="Deploy"/>
 		</form>
 		{% if repo_accordion %}
