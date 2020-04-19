@@ -52,6 +52,14 @@ def build_tree(path_list):
         else:
             for x in i_dirs:
                 tree[x[i-1]]["subs"].update({x[i]:{"type":"dir","subs":{}}})
+    for i in range(len(files_list[len(files_list)-1])):
+        i_files = list(filter(lambda x: len(x) == i+1,files_list))
+        if i == 0:
+            for x in i_files:
+                tree.update({x[i]:{"type":"file"}})
+        else:
+            for x in i_dirs:
+                tree[x[i-1]]["subs"].update({x[i]:{"type":"file"}})                
     return tree
         
     
