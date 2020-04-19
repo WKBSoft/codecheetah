@@ -88,10 +88,10 @@ test_list = [
         ['A','X','C','D'],
 	    ['A','B','Y','D']
     ],
-        ['A','B','C','D','E'],
-        ['A','B','C','D','F'],
-	    ['A','B','Y','E'],   
         ['A','F'],
+        ['A','B','Y','E'],
+        ['A','B','C','D','E'],
+        ['A','B','C','D','F']
 ]
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 print my_path_list
