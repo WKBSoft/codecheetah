@@ -86,6 +86,7 @@ test_list = [
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 print my_path_list
 print build_tree(test_list)
+print "A".split("/")
             
             
 
