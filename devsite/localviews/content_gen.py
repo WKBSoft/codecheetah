@@ -1,5 +1,16 @@
 import os
 
+accordian = '''		
+<div class="accordion" id="accordionExample">
+	<button class="btn btn-light btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+    	<!-- collapse link -->
+    </button>
+    <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		<!-- collapse content -->
+	</div>
+</div>
+'''
+
 def list_subpaths(path):
     files_list = []
     dirs_list = []
@@ -63,13 +74,4 @@ print my_path_list
 print build_tree(my_path_list)
             
             
-accordian = '''		
-<div class="accordion" id="accordionExample">
-	<button class="btn btn-light btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
-    	<!-- collapse link -->
-    </button>
-    <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-		<!-- collapse content -->
-	</div>
-</div>
-'''
+
