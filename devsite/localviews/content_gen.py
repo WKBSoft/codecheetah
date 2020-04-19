@@ -52,7 +52,7 @@ def build_tree(path_list):
         else:
             for x in dirs:
                 html = html.replace("<!-- collapse content -->",accordian)
-                html = html.replace("<!-- collapse link -->",x.split("/")[i])
+                html = html.replace("<!-- collapse link -->",x[i])
     
 
 print list_subpaths("/home/ec2-user/repos/devsite")
