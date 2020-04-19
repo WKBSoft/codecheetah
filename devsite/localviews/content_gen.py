@@ -61,10 +61,14 @@ def build_tree(path_list):
 {'ABC':'D','AXC':'D','ABY':'D'}
 {'A':{'B':{'C':{'D'},'Y':{'D'}},'X':{'C':'D':{}}}}
     '''
-
-my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
+test_list = [
+    ['A','B','C','D'],
+	['A','X','C','D'],
+	['A','B','Y','D']
+]
+#my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 #print my_path_list
-print build_tree(my_path_list)
+print build_tree(test_list)
             
             
 
