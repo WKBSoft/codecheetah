@@ -63,7 +63,7 @@ def build_tree(path_list):
     '''
 
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
-print my_path_list
+#print my_path_list
 print build_tree(my_path_list)
             
             
