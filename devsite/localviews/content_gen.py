@@ -54,6 +54,16 @@ def build_tree(path_list):
                     tree[path]["dirs"].append(x[i])
             else:
                 tree.update({path:{"dirs":[x[i]]}})
+    for i in reversed(range(1,len(files_list[len(files_list)-1]))):
+        i_files = list(filter(lambda x: len(x) == i+1,files_list))
+        print i_files
+        for x in i_files:
+            path = "/".join(x[0:i])
+            if path in tree:
+                if x[i] not in tree[path]["files"]:
+                    tree[path]["files"].append(x[i])
+            else:
+                tree.update({path:{"files":[x[i]]}})                
     return tree
 
 def write_html(tree):
@@ -81,7 +91,7 @@ test_list = [
         ['A','B','C','D','E'],
         ['A','B','C','D','F'],
 	    ['A','B','Y','E'],   
-        ['A','F']
+        ['A','F'],
 ]
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 print my_path_list
