@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^openfile',views.openfile,name="openfile"),
     url(r'^savefile',views.savefile,name="savefile"),
     url(r'^deploy_code',views.deploy_code,name="deploy_code"),
+    url(r'^login',views.landing_page,name="login"),
 ]
