@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    os.system("git -C /home/bellemanwesley/devsite pull origin")
+    os.system("git -C /home/ec2-user/devsite pull origin")
     os.system("sudo systemctl restart website_server")
     return "Step 2 successful"
 
