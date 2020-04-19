@@ -46,6 +46,7 @@ def build_tree(path_list):
     tree = {}
     for i in reversed(range(1,len(dirs_list[len(dirs_list)-1]))):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
+        print i_dirs
         level_tree = {}
         for x in i_dirs:
             path = "/".join(x[0:i])
