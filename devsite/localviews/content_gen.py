@@ -1,6 +1,6 @@
 import os
 
-accordian = '''		
+accordion = '''		
 <div class="accordion" id="accordion_id">
 	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_id" aria-expanded="false" aria-controls="collapse_id">
     	<!-- collapse link -->
@@ -80,10 +80,11 @@ def write_html(tree):
     level = list(filter(lambda x: len(x.split("/")) == i,tree))
     if html == "":
         for x in level:
-            loc_html = accordian.replace("collapse_id","collapse_"+x)
+            loc_html = accordion.replace("collapse_id","collapse_"+x)
             loc_html = loc_html.replace("accordion_id","accordion_"+x)
             loc_html = loc_html.replace("<!-- collapse link -->",x)
             loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"-->")
+            print loc_html
             html += loc_html
     while i<5:
         for x in level:
@@ -96,11 +97,12 @@ def write_html(tree):
                 for y in tree[x]["dirs"]:
                     dir_id = x+"/"+y
                     dir_id_html = dir_id.replace("/","_")
-                    loc_loc_html = accordian.replace("collapse_id","collapse_"+dir_id_html)
+                    loc_loc_html = accordion.replace("collapse_id","collapse_"+dir_id_html)
                     loc_loc_html = loc_loc_html.replace("accordion_id","accordion_"+dir_id_html)
                     loc_loc_html = loc_loc_html.replace("<!-- collapse link -->",y)
                     loc_loc_html = loc_loc_html.replace("<!-- collapse content -->","<!-- collapse content "+dir_id+"-->")
                     loc_html += loc_loc_html
+            print loc_html
             html = html.replace("<!-- collapse content "+x+"-->",loc_html)
         i += 1
         level = list(filter(lambda x: len(x.split("/")) == i,tree))
