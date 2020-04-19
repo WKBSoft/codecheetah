@@ -98,8 +98,9 @@ def write_html(tree):
                 for y in tree[x]["dirs"]:
                     print y
                     dir_id = x+"/"+y
-                    loc_loc_html = accordian.replace("collapse_id","collapse_"+dir_id)
-                    loc_loc_html = loc_loc_html.replace("accordian_id","accordian_"+dir_id)
+                    dir_id_html = dir_id.replace("/","_")
+                    loc_loc_html = accordian.replace("collapse_id","collapse_"+dir_id_html)
+                    loc_loc_html = loc_loc_html.replace("accordian_id","accordian_"+dir_id_html)
                     loc_loc_html = loc_loc_html.replace("<!-- collapse link -->",y)
                     loc_loc_html = loc_loc_html.replace("<!-- collapse content -->","<!-- collapse content "+dir_id+"-->")
                     loc_html += loc_loc_html
