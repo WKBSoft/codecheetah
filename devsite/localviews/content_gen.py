@@ -109,36 +109,10 @@ def write_html(tree):
         level = list(filter(lambda x: len(x.split("/")) == i,tree))
     return html
 
-'''        
-['A','B','C','D']
-['A','X','C','D']
-['A','B','Y','D']
-['A'
-    '''
-test_list = [
-    [
-        ['A'],
-        ['A','B'],
-        ['A','B'],
-        ['A','X'],
-        ['A','B','C'],
-        ['A','B','Y'],
-        ['A','X','C'],
-        ['A','B','C','D'],
-        ['A','X','C','D'],
-	    ['A','B','Y','D']
-    ],
-    [
-        ['A','F'],
-        ['A','B','Y','E'],
-        ['A','B','C','D','E'],
-        ['A','B','C','D','F']
-    ]
-]
-#my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
-#print my_path_list
-my_tree = build_tree(test_list)
-print my_tree
-print write_html(my_tree)            
+def path_accordion(path):
+    my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
+    my_tree = build_tree(test_list)
+    return write_html(my_tree)            
             
+print path_accordion("/home/ec2-user/repos/devsite")
 
