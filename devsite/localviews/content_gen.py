@@ -61,7 +61,7 @@ def build_tree(path_list):
         print i_files
         for x in i_files:
             path = "/".join(x[0:i])
-            if "files" in tree[path]:
+            if path in tree and "files" in tree[path]:
                 if x[i] not in tree[path]["files"]:
                     tree[path]["files"].append(x[i])
             else:
