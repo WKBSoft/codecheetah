@@ -76,13 +76,14 @@ def build_tree(path_list):
 def write_html(tree):
     html = ""
     i = 1
+    
     level = list(filter(lambda x: len(x.split("/")) == i,tree))
     if html == "":
         for x in level:
             loc_html = accordian.replace("<!-- collapse link -->",x)
             loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"-->")
             html += loc_html
-    while i<4:
+    while i<5:
         print level
         for x in level:
             print x
