@@ -49,7 +49,7 @@ def build_tree(path_list):
         level_tree = {}
         for x in i_dirs:
             path = "/".join(x[0:i])
-            level_tree = {"path":x[i]}
+            level_tree.update({path:x[i]})
         tree.update({i:level_tree})
     return tree
         
