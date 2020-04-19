@@ -44,7 +44,7 @@ def build_tree(path_list):
     dirs_list = path_list[0]
     files_list = path_list[1]
     tree = {}
-    for i in reversed(1,range(len(dirs_list[len(dirs_list)-1]))):
+    for i in reversed(range(1,len(dirs_list[len(dirs_list)-1]))):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
         level_tree = {}
         for x in i_dirs:
