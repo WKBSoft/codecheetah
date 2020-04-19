@@ -44,7 +44,7 @@ def build_tree(path_list):
     dirs_list = path_list[0]
     files_list = path_list[1]
     tree = {}
-    for i in range(len(dirs_list[len(dirs_list)])):
+    for i in range(len(dirs_list[len(dirs_list)-1])):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
         if tree == {}:
             for x in i_dirs:
