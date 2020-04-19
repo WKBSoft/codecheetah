@@ -12,9 +12,9 @@ accordion = '''
 '''
 
 file_button = '''		
-	<button class="btn btn-light btn-block btn-sm" type="button" href="openfile/?q=">
+	<a class="btn btn-light btn-block btn-sm" href="openfile/?q=">
     	<!-- file name -->
-    </button>
+    </a>
 '''
 
 def list_subpaths(path):
