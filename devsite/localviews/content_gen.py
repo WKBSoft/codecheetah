@@ -72,7 +72,9 @@ def write_html(tree):
     top_level = list(filter(lambda x: len(x.split("/")) == 1,tree))
     if html == "":
         for x in top_level:
-            html += accordian.replace("<!-- collapse link -->",x)
+            loc_html = accordian.replace("<!-- collapse link -->",x)
+            loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"-->")
+            html += loc_html
     return html
 
 '''        
