@@ -111,5 +111,5 @@ def path_accordion(path):
     my_tree = build_tree(path_list)
     return write_html(my_tree)            
             
-print path_accordion("/home/ec2-user/repos/devsite")
-
+my_path_accordion = path_accordion("/home/ec2-user/repos/devsite")
+print my_path_accordion
