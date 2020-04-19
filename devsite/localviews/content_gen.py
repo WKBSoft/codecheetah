@@ -103,6 +103,6 @@ test_list = [
 #print my_path_list
 my_tree = build_tree(test_list)
 print my_tree
-print write_html(my tree)            
+print write_html(my_tree)            
             
 
