@@ -1,18 +1,18 @@
 import os
 
 accordian = '''		
-<div class="accordion" id="accordian_path_top">
-	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseOne">
+<div class="accordion" id="accordian_id">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_id" aria-expanded="false" aria-controls="collapse_id">
     	<!-- collapse link -->
     </button>
-    <div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapse_id" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_id">
 		<!-- collapse content -->
 	</div>
 </div>
 '''
 
 file_button = '''		
-	<button class="btn btn-light btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+	<button class="btn btn-light btn-block btn-sm" type="button">
     	<!-- file name -->
     </button>
 '''
@@ -80,6 +80,8 @@ def write_html(tree):
     level = list(filter(lambda x: len(x.split("/")) == i,tree))
     if html == "":
         for x in level:
+            loc_loc_html = accordian.replace("collapse_id","collapse_"+x)
+            loc_loc_html = accordian.replace("accordian_id","accordian_"+x)
             loc_html = accordian.replace("<!-- collapse link -->",x)
             loc_html = loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"-->")
             html += loc_html
@@ -95,8 +97,11 @@ def write_html(tree):
             if "dirs" in tree[x]:
                 for y in tree[x]["dirs"]:
                     print y
-                    loc_loc_html = accordian.replace("<!-- collapse link -->",y)
-                    loc_loc_html = loc_loc_html.replace("<!-- collapse content -->","<!-- collapse content "+x+"/"+y+"-->")
+                    dir_id = x+"/"+y
+                    loc_loc_html = accordian.replace("collapse_id","collapse_"+dir_id)
+                    loc_loc_html = accordian.replace("accordian_id","accordian_"+dir_id)
+                    loc_loc_html = loc_loc_html.replace("<!-- collapse link -->",y)
+                    loc_loc_html = loc_loc_html.replace("<!-- collapse content -->","<!-- collapse content "+dir_id+"-->")
                     loc_html += loc_loc_html
             html = html.replace("<!-- collapse content "+x+"-->",loc_html)
         i += 1
