@@ -17,7 +17,7 @@ def get_code_format(code_type):
 
 def home(request):
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion,'random_thing':'random_thing'}))
+    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
 
 def openfile(request):
     code_loc = request.GET['q']
@@ -25,7 +25,8 @@ def openfile(request):
     code_type = code_loc_list[len(code_loc_list)-1]
     with open('/home/ec2-user/repos/'+code_loc) as f:
         data = f.read()
-    return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
+    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
+    return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def savefile(request):
     my_code = request.POST['code']
@@ -39,8 +40,8 @@ def savefile(request):
     os.system('git -C '+repo_loc+" commit -m 'auto commit'")
     os.system('git -C '+repo_loc+' push origin master')
     active_page = request.POST
-    return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc}))
+    return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def deploy_code(request):
     deploy_result = requests.get('http://localhost:5000')
-    return(render(request,'home.html',{'deploy_result':deploy_result.text,'active_page':'code_page'}))
+    return(render(request,'home.html',{'active_page':'code_page'}))
