@@ -16,8 +16,8 @@ def get_code_format(code_type):
     return page_content.text
 
 def home(request):
-    dirs_list = []
-    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
+    #repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
+    repo_accordion = "<p>Yes this is working</p>"
     return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
 
 def openfile(request):
