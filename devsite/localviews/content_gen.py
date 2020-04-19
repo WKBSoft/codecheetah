@@ -60,8 +60,8 @@ def build_tree(path_list):
         dirs = list(filter(lambda x: len(x) == i+1, dirs_list))
         if html == "":
             for x in dirs:
-                html += accordian.replace("<!-- collapse link -->",x)
-                subdirs = get_subs(x,dirs_list)
+                html += accordian.replace("<!-- collapse link -->",x[i])
+                #subdirs = get_subs(x,dirs_list)
         else:
             for x in dirs:
                 html = html.replace("<!-- collapse content -->",accordian)
