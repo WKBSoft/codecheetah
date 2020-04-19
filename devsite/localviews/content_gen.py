@@ -62,9 +62,14 @@ def build_tree(path_list):
 {'A':{'B':{'C':{'D'},'Y':{'D'}},'X':{'C':'D':{}}}}
     '''
 test_list = [
-    ['A','B','C','D'],
-	['A','X','C','D'],
-	['A','B','Y','D']
+    [
+        ['A','B','C','D'],
+        ['A','X','C','D'],
+	    ['A','B','Y','D']
+    ],
+        ['A','B','C','D','E'],
+        ['A','B','C','D','F'],
+	    ['A','B','Y','D','E']    
 ]
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 print my_path_list
