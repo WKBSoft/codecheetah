@@ -51,7 +51,7 @@ def build_tree(path_list):
                 tree.update({x[i]:{"type":"dir","subs":{}}})
         else:
             for x in i_dirs:
-                tree[x-1][subs].update({x[i]:{"type":"dir","subs":{}}})
+                tree[x[i-1]][subs].update({x[i]:{"type":"dir","subs":{}}})
     return tree
         
     
