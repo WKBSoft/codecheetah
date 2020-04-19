@@ -66,7 +66,7 @@ def build_tree(path_list):
                     if x[i] not in tree[path]["files"]:
                         tree[path]["files"].append(x[i])
                 else:
-                    tree['path'].update({"files":[x[i]]})
+                    tree[path].update({"files":[x[i]]})
             else:
                 tree.update({path:{"files":[x[i]]}})                
     return tree
