@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import os
+import time
 import requests
 import sys
 sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
@@ -44,6 +45,6 @@ def savefile(request):
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def deploy_code(request):
-    #deploy_result = requests.get('http://localhost:5000')
+    deploy_result = requests.get('http://localhost:5000')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
