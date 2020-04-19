@@ -61,9 +61,12 @@ def build_tree(path_list):
         print i_files
         for x in i_files:
             path = "/".join(x[0:i])
-            if path in tree and "files" in tree[path]:
-                if x[i] not in tree[path]["files"]:
-                    tree[path]["files"].append(x[i])
+            if path in tree:
+                if "files" in tree[path]:
+                    if x[i] not in tree[path]["files"]:
+                        tree[path]["files"].append(x[i])
+                else:
+                    tree['path'].update({"files":[x[i]]})
             else:
                 tree.update({path:{"files":[x[i]]}})                
     return tree
