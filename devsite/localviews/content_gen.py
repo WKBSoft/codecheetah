@@ -1,5 +1,5 @@
 import os
-#comment
+
 def list_subpaths(path):
     files_list = []
     dirs_list = []
@@ -47,13 +47,12 @@ def build_tree(path_list):
         dirs = list(filter(lambda x: len(x) == i, dirs_list))
         if html == "":
             for x in dirs:
-                html += accordian.replace("<!-- collapse link -->",dirs[i])
-                subdirs = get_subs(x,dirs
-                for x in pot
+                html += accordian.replace("<!-- collapse link -->",x)
+                subdirs = get_subs(x,dirs_list)
         else:
             for x in dirs:
                 html = html.replace("<!-- collapse content -->",accordian)
-                html = html.replace("<!-- collapse link -->",dirs[i])
+                html = html.replace("<!-- collapse link -->",x.split("/")[i])
     
 
 print list_subpaths("/home/ec2-user/repos")
