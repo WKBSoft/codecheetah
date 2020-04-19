@@ -44,24 +44,20 @@ def build_tree(path_list):
     dirs_list = path_list[0]
     files_list = path_list[1]
     tree = {}
-    for i in range(len(dirs_list[len(dirs_list)-1])):
+    for i in reversed(1,range(len(dirs_list[len(dirs_list)-1]))):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
-        if tree == {}:
-            for x in i_dirs:
-                tree.update({x[i]:{"type":"dir","content":{}}})
-        else:
-            for x in i_dirs:
-                tree[x[i-1]]["content"].update({x[i]:{"type":"dir","content":{}}})
-    for i in range(len(files_list[len(files_list)-1])):
-        i_files = list(filter(lambda x: len(x) == i+1,files_list))
-        if i == 0:
-            for x in i_files:
-                tree.update({x[i]:{"type":"file"}})
-        else:
-            for x in i_dirs:
-                tree[x[i-1]]["content"].update({x[i]:{"type":"file"}})                
-    return tree
+        level_tree = {}
+        for x in i_dirs:
+            path = "/".join(x[0:i])
+            level_tree = {"path":x[i]}
+        tree.update({i:level_tree})
         
+        
+['A','B','C','D']
+['A','X','C','D']
+['A','B','Y','D']
+{'ABC':'D','AXC':'D','ABY':'D'}
+{'A':{'B':{'C':{'D'},'Y':{'D'}},'X':{'C':'D':{}}}}
     
 
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
