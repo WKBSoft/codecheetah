@@ -46,7 +46,6 @@ def build_tree(path_list):
     tree = {}
     for i in range(1,len(dirs_list[len(dirs_list)-1])):
         i_dirs = list(filter(lambda x: len(x) == i+1,dirs_list))
-        print i_dirs
         for x in i_dirs:
             path = "/".join(x[0:i])
             if path in tree:
@@ -58,7 +57,6 @@ def build_tree(path_list):
     print range(1,len(files_list[len(files_list)-1]))
     for i in range(1,len(files_list[len(files_list)-1])):
         i_files = list(filter(lambda x: len(x) == i+1,files_list))
-        print i_files
         for x in i_files:
             path = "/".join(x[0:i])
             if path in tree:
@@ -103,8 +101,8 @@ test_list = [
 ]
 #my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 #print my_path_list
-print write_html(build_tree(test_list))
-#print "A".split("/")
-            
+my_tree = build_tree(test_list)
+print my_tree
+print write_html(my tree)            
             
 
