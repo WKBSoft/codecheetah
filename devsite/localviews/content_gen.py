@@ -53,13 +53,13 @@ def build_tree(path_list):
         tree.update({i:level_tree})
     return tree
         
-        
+'''        
 ['A','B','C','D']
 ['A','X','C','D']
 ['A','B','Y','D']
 {'ABC':'D','AXC':'D','ABY':'D'}
 {'A':{'B':{'C':{'D'},'Y':{'D'}},'X':{'C':'D':{}}}}
-    
+    '''
 
 my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 print my_path_list
