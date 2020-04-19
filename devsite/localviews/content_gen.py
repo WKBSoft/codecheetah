@@ -9,11 +9,11 @@ def list_subpaths(path):
             my_dir = os.path.join(root,name)
             my_dir_list = my_dir.split("/")
             del my_dir_list[0:path_length]           
-        if len(my_dir_list) > 1:
-            if my_dir_list[0] != ".git":
+            if len(my_dir_list) > 1:
+                if my_dir_list[0] != ".git":
+                    dirs_list.append(my_dir_list)
+            else:
                 dirs_list.append(my_dir_list)
-        else:
-            dirs_list.append(my_dir_list)
         for name in files:
             my_file = os.path.join(root,name)
             my_file_list = my_file.split("/")
