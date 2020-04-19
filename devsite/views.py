@@ -46,4 +46,4 @@ def savefile(request):
 def deploy_code(request):
     deploy_result = requests.get('http://localhost:5000')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return(render(request,'home.html',{'active_page':'code_page'}))
+    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
