@@ -8,21 +8,23 @@ def list_subpaths(path):
         for name in dirs:
             my_dir = os.path.join(root,name)
             my_dir_list = my_dir.split("/")
-            del my_dir_list[0:path_length]           
-            if len(my_dir_list) > 1:
-                if my_dir_list[0] != ".git":
-                    dirs_list.append(my_dir_list)
-            else:
-                dirs_list.append(my_dir_list)
+            del my_dir_list[0:path_length]
+            add_dir = True
+            for item in my_dir_list:
+                if item[0] == ".":
+                    add_dir = False
+            if add_dir:
+                dirs.list.append(my_dir_list)
         for name in files:
             my_file = os.path.join(root,name)
             my_file_list = my_file.split("/")
             del my_file_list[0:path_length]           
-            if len(my_file_list) > 1:
-                if my_file_list[0] != ".git":
-                    files_list.append(my_file_list)
-            else:
-                dirs_list.append(my_file_list)
+            add_file = True
+            for item in my_file_list:
+                if item[0] == ".":
+                    add_file = False
+            if add_file:
+                files.list.append(my_file_list)
     dirs_list.sort(key=len)
     files_list.sort(key=len)
     return [dirs_list,files_list]
