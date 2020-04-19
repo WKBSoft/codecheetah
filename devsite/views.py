@@ -3,7 +3,7 @@ import os
 import requests
 import sys
 sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
-#import content_gen
+import content_gen
 
 def landing_page(request):
     return(render(request,"landing.html",{}))
