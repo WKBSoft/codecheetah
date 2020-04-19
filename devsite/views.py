@@ -16,8 +16,7 @@ def get_code_format(code_type):
     return page_content.text
 
 def home(request):
-    #repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    repo_accordion = "<p>Yes this is working</p>"
+    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'active_page':'biatch','repo_accordion':repo_accordion,'random_thing':'random_thing'}))
 
 def openfile(request):
