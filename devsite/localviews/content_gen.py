@@ -55,7 +55,7 @@ def build_tree(path_list):
                 html = html.replace("<!-- collapse link -->",x.split("/")[i])
     
 
-print list_subpaths("/home/ec2-user/repos/balldata")
+print list_subpaths("/home/ec2-user/repos/devsite")
             
             
 accordian = '''		
