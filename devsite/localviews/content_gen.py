@@ -72,7 +72,8 @@ def build_tree(path_list):
     return tree
 
 def write_html(tree):
-    pass
+    top_level = list(filter(lambda x: len(x.split("/")) == 1,tree))
+    return top_level
 
 '''        
 ['A','B','C','D']
@@ -102,7 +103,7 @@ test_list = [
 ]
 #my_path_list = list_subpaths("/home/ec2-user/repos/devsite")
 #print my_path_list
-print build_tree(test_list)
+print write_html(build_tree(test_list))
 #print "A".split("/")
             
             
