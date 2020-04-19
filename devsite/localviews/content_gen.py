@@ -14,7 +14,7 @@ def list_subpaths(path):
                 if item[0] == ".":
                     add_dir = False
             if add_dir:
-                dirs.list.append(my_dir_list)
+                dirs_list.append(my_dir_list)
         for name in files:
             my_file = os.path.join(root,name)
             my_file_list = my_file.split("/")
@@ -24,7 +24,7 @@ def list_subpaths(path):
                 if item[0] == ".":
                     add_file = False
             if add_file:
-                files.list.append(my_file_list)
+                files_list.append(my_file_list)
     dirs_list.sort(key=len)
     files_list.sort(key=len)
     return [dirs_list,files_list]
