@@ -91,7 +91,7 @@ def write_html(tree):
                 loc_html += loc_loc_html
             html += loc_html
         i += 1
-        level = list(filter(lambda x: len(x.split("/")) == 1,tree))
+        level = list(filter(lambda x: len(x.split("/")) == i,tree))
     return html
 
 '''        
