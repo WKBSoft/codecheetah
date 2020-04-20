@@ -116,7 +116,10 @@ def path_accordion(path):
             
 def list_contents(path):
     path_list = list_subpaths(path)
-    contents_list = []
-    for x in path_list:
-        contents_list.append(x.join("/"))
-    return contents_list
+    dirs_contents_list = []
+    for x in path_list[0]:
+        dirs_contents_list.append(x.join("/"))
+    files_contents_list = []
+    for x in path_list[1]:
+        files_contents_list.append(x.join("/"))
+    return [dirs_contents_list,files_contents_list]
