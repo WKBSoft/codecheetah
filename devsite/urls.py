@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.home,name="home"),
-    url(r'^openfile',views.openfile,name="openfile"),
+    url(r'/openfile',views.openfile,name="openfile"),
     url(r'^savefile',views.savefile,name="savefile"),
     url(r'^deploy_code',views.deploy_code,name="deploy_code"),
     url(r'^login',views.landing_page,name="login"),
