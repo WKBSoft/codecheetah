@@ -114,3 +114,9 @@ def path_accordion(path):
     my_tree = build_tree(path_list)
     return write_html(my_tree)            
             
+def list_contents(path):
+    path_list = list_subpaths(path)
+    contents_list = []
+    for x in path_list:
+        contents_list.append(x.join("/"))
+    return contents_list

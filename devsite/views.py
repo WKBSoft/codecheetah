@@ -22,7 +22,7 @@ def home(request):
 
 def openfile(request):
     code_loc = request.GET['q']
-    available_files = content_gen.list_subpaths("/home/ec2-user/repos")[1]
+    available_files = content_gen.list_contents("/home/ec2-user/repos")[1]
     if code_loc in available_files:
         code_loc_list = code_loc.split('.')
         code_type = code_loc_list[len(code_loc_list)-1]
