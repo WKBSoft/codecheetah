@@ -18,7 +18,8 @@ def get_code_format(code_type):
 
 def home(request):
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
+    code_type = "plaintext"
+    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion,'page_content':get_code_format(code_type)}))
 
 def openfile(request):
     code_loc = request.GET['q']
