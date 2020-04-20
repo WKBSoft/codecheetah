@@ -118,8 +118,8 @@ def list_contents(path):
     path_list = list_subpaths(path)
     dirs_contents_list = []
     for x in path_list[0]:
-        dirs_contents_list.append(x.join("/"))
+        dirs_contents_list.append("/".join(x))
     files_contents_list = []
     for x in path_list[1]:
-        files_contents_list.append(x.join("/"))
+        files_contents_list.append("/".join(x))
     return [dirs_contents_list,files_contents_list]
