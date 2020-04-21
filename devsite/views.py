@@ -18,11 +18,11 @@ def submit_login(request):
         users = json.loads(f.read())
     if uname in users:
         if users[uname] == psswd:
-            HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/home/')
         else:
-            HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/login/')
     else:
-        HttpResponseRedirect('/login/')
+        return HttpResponseRedirect('/login/')
         
 
 def get_code_format(code_type):
