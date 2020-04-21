@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^savefile',views.savefile,name="savefile"),
     url(r'^deploy_code',views.deploy_code,name="deploy_code"),
     url(r'^login',views.landing_page,name="login"),
+    url(r'^submit_login',views.submit_login,name="submit_login")
 ]
