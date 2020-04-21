@@ -8,6 +8,9 @@ import json
 sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
 import content_gen
 
+def check_login(request):
+    return True
+
 def landing_page(request):
     return(render(request,"landing.html",{}))
 
@@ -56,17 +59,18 @@ def savefile(request):
     code_loc = request.POST['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
-    with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
-        f.write(my_code)
     repo_loc = '/home/ec2-user/repos/' + code_loc.split('/')[0]
-    os.system('git -C '+repo_loc+' add .')
-    os.system('git -C '+repo_loc+" commit -m 'auto commit'")
-    os.system('git -C '+repo_loc+' push origin master')
-    active_page = request.POST
+    if check_login(request):
+        with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
+            f.write(my_code)
+        os.system('git -C '+repo_loc+' add .')
+        os.system('git -C '+repo_loc+" commit -m 'auto commit'")
+        os.system('git -C '+repo_loc+' push origin master')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def deploy_code(request):
-    deploy_result = requests.get('http://localhost:5000')
+    if check_login(request):
+        deploy_result = requests.get('http://localhost:5000')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
