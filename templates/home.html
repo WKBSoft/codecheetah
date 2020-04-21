@@ -60,7 +60,7 @@
           <br>
       			<form action="/savefile" method="post">
      				<textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
-        			<input type="text" name="q" value="{% if default_save %}{{default_save}}{% endif %}"></input>
+        			<input type="text" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
         			<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
 					{% csrf_token %}
                     <input class="btn btn-primary" type="submit" value="Save" />
