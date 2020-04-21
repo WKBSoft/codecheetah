@@ -30,8 +30,8 @@
        <form action="/login" method="post">
          {% csrf_token %}
       <div class="modal-body">
-        <p>Username:<input type="text" name="uname"></input></p>
-        <p>Password:<input type="text" name="psswd"></input></p>
+        <p>Username:<input type="text" name="uname" required></input></p>
+        <p>Password:<input type="password" name="psswd" required></input></p>
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn btn-success btn-block" value="Sign In"></input>
