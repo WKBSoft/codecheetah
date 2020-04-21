@@ -70,7 +70,7 @@ def savefile(request):
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
-def deploy_code(request):
+def deploy_button(request):
     if check_login(request):
         deploy_result = requests.get('http://localhost:5000')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
