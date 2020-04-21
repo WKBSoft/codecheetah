@@ -16,8 +16,11 @@ def submit_login(request):
     psswd = request.POST['psswd']
     with open('/home/ec2-user/keys/users.json','r') as f:
         users = json.loads(f.read())
-    if users['uname'] == psswd:
-        HttpResponseRedirect('/home/')
+    if uname in users:
+        if users[uname] == psswd:
+            HttpResponseRedirect('/home/')
+        else:
+            HttpResponseRedirect('/home/')
     else:
         HttpResponseRedirect('/login/')
         
