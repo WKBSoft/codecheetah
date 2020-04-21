@@ -1,13 +1,26 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 import os
 import time
 import requests
 import sys
+import json
 sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
 import content_gen
 
 def landing_page(request):
     return(render(request,"landing.html",{}))
+
+def submit_login(request):
+    uname = request.POST['uname']
+    psswd = request.POST['psswd']
+    with open('/home/ec2-user/keys/users.json','r') as f:
+        users = json.loads(f.read())
+    if users['uname'] == passwd:
+        HttpResponseRedirect('/home/')
+    else:
+        HttpResponseRedirect('/login/')
+        
 
 def get_code_format(code_type):
     extension_map = {'py':'python','js':'javascript'}
