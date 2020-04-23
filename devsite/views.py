@@ -12,7 +12,7 @@ import content_gen
 import deploy_code
 
 def check_login(request):
-    return True
+	return request.POST['cheetah_key'] == "thisismybasicsessionkey"
 
 def landing_page(request):
     return(render(request,"landing.html",{}))
@@ -70,6 +70,8 @@ def savefile(request):
         os.system('git -C '+repo_loc+' add .')
         os.system('git -C '+repo_loc+" commit -m 'auto commit'")
         os.system('git -C '+repo_loc+' push origin master')
+    else:
+        my_code = "Access denied"
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
