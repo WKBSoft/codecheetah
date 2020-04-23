@@ -50,6 +50,7 @@
         </form>  
   		<form action="/deploy_code" method="post">
                 {% csrf_token %}
+          		<input type="text" name="cheetah_key" hidden></input>
         		<input class="btn btn-primary" type="submit" value="Deploy"/>
 		</form>
 		{% if repo_accordion %}
@@ -59,10 +60,11 @@
 		<div class="col-7">
           <br>
       			<form action="/savefile" method="post">
-     				<textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
+                    <textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
         			<input type="text" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
         			<input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
-					{% csrf_token %}
+  					<input type="text" name="cheetah_key" hidden></input>
+  					{% csrf_token %}
                     <input class="btn btn-primary" type="submit" value="Save" />
       			</form>
 				<p>
@@ -80,6 +82,11 @@ document.getElementById("code_page").className = "none";
 document.getElementById("my_network").className = "none";
 var active_page = "{% if active_page %}{{active_page}}{% endif %}";
 document.getElementById(active_page).className = "active";
+
+var cheetah_keys = document.getElementsByName("cheetah_key")
+for (i=0; i<cheetah_keys.length; i++) {
+  cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
+}
   
 </script>
 
