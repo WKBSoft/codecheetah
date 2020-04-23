@@ -27,9 +27,9 @@ def submit_login(request):
             response = HttpResponse("thisismybasicsessionkey", content_type="text/plain")
             return response
         else:
-            return HttpResponseRedirect('/login/')
+            return HttpResponse("login_failure", content_type="text/plain")
     else:
-        return HttpResponseRedirect('/login/')
+        return HttpResponse("login_failure", content_type="text/plain")
         
 
 def get_code_format(code_type):
