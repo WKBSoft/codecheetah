@@ -50,9 +50,9 @@ function load_response(url, cFunction) {
     }
   };
   var send_data = "uname=".concat(document.getElementById("uname").value);
-  var send_data = send_data.concat("&psswd=".concat(document.getElementById("psswd").value);
+  var send_data = send_data.concat("&psswd=".concat(document.getElementById("psswd").value));
   var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
-  var send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value))
+  var send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(send_data);
@@ -60,7 +60,6 @@ function load_response(url, cFunction) {
 function set_session_key(xhttp) {
   sessionStorage.setItem("cheetah_key", xhttp.responseText);
   alert(sessionStorage.getItem("cheetah_key"));
-  //alert(xhttp.responseText);
 }
 </script>
 
