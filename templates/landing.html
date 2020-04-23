@@ -51,7 +51,7 @@ function load_response(url, cFunction) {
   };
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0]
+  var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0];
   xhttp.send("uname=wesley&psswd=notagreatpassword&csrfmiddlewaretoken=".concat(csrf_token_value));
 }
 function set_session_key(xhttp) {
