@@ -55,8 +55,8 @@ function load_response(url, cFunction) {
   xhttp.send("uname=wesley&psswd=notagreatpassword&csrfmiddlewaretoken=".concat(csrf_token_value));
 }
 function set_session_key(xhttp) {
-  sessionStorage.setItem("cheetah_key", "mykey");
-  alert(sessionStorage.getItem("cheetah_key");
+  sessionStorage.setItem("cheetah_key", xhttp.responseText);
+  alert(sessionStorage.getItem("cheetah_key"));
   //alert(xhttp.responseText);
 }
 </script>
