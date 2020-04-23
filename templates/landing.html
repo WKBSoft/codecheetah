@@ -63,7 +63,7 @@ function set_session_key(xhttp) {
     window.location.replace("https://cheetah.link/login");
   } else {
   sessionStorage.setItem("cheetah_key", xhttp.responseText);
-  alert(sessionStorage.getItem("cheetah_key"));
+  window.location.replace("https://cheetah.link/");
   }
 }
 </script>
