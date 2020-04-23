@@ -58,8 +58,13 @@ function load_response(url, cFunction) {
   xhttp.send(send_data);
 }
 function set_session_key(xhttp) {
+  var session_key_result = xhttp.responseText;
+  if (session_key_result === "login_failure"){
+    window.location.replace("https://cheetah.link/login");
+  } else {
   sessionStorage.setItem("cheetah_key", xhttp.responseText);
   alert(sessionStorage.getItem("cheetah_key"));
+  }
 }
 </script>
 
