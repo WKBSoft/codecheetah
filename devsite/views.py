@@ -1,6 +1,7 @@
 # coding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 import os
 import time
 import requests
@@ -23,7 +24,8 @@ def submit_login(request):
         users = json.loads(f.read())
     if uname in users:
         if users[uname] == psswd:
-            return HttpResponseRedirect('/')
+            response = HttpResponse("thisismybasicsessionkey", content_type="text/plain")
+            return response
         else:
             return HttpResponseRedirect('/login/')
     else:
