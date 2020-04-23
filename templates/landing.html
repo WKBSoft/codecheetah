@@ -27,18 +27,35 @@
           <span aria-hidden="true">&times;</span>
          </button>
        </div>
-       <form action="/submit_login" method="post">
          {% csrf_token %}
       <div class="modal-body">
         <p>Username:<input type="text" name="uname" required></input></p>
         <p>Password:<input type="password" name="psswd" required></input></p>
       </div>
       <div class="modal-footer">
-        <input type="submit" class="btn btn-success btn-block" value="Sign In"></input>
-       </form>
+        <input type="button" class="btn btn-success btn-block" value="Sign In" onclick="load_response('/submit_login', set_session_key)"></input>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+function load_response(url, cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      cFunction(this);
+    }
+  };
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("uname=wesley&psswd=notagreatpassword");
+}
+function set_session_key(xhttp) {
+  alert(xhttp.responseText);
+}
+</script>
+
   </body>
 </html>
