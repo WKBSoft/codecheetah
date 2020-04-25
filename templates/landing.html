@@ -58,17 +58,19 @@
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+         <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
          </button>
        </div>
       <div class="modal-body">
+        <p>Email:<input id="email" type="text" name="email" required></input></p>
         <p>Username:<input id="uname" type="text" name="uname" required></input></p>
         <p>Password:<input id="psswd" type="password" name="psswd" required></input></p>
+		<p>Password:<input id="psswd-copy" type="password" name="psswd-copy" required></input></p>
       </div>
       <div class="modal-footer">
-        <input type="button" class="btn btn-success btn-block" value="Sign In" onclick="load_response('/submit_login', set_session_key)"></input>
+        <input type="button" class="btn btn-success btn-block" value="Sign In" onclick=""></input>
       </div>
     </div>
   </div>
