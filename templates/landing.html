@@ -16,14 +16,39 @@
     <div class="container-fluid">
       <div class="row align-items-center justify-content-center">
         <img src="https://media.istockphoto.com/vectors/cheetah-running-sketch-vector-vector-id861750092?k=6&m=861750092&s=612x612&w=0&h=Iy4dFm6EnhLcURAW0gFnz-XVqQaeeS_G7EuO4Ryo5NQ=" />
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Launch demo modal
+        <br>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#signinModal">
+          Sign In
+        </button>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#signupmodal">
+          Sign Up
         </button>
       </div>
     </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      <div class="modal-body">
+        <p>Username:<input id="uname" type="text" name="uname" required></input></p>
+        <p>Password:<input id="psswd" type="password" name="psswd" required></input></p>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn btn-success btn-block" value="Sign In" onclick="load_response('/submit_login', set_session_key)"></input>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
