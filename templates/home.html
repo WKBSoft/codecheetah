@@ -51,7 +51,7 @@
 		<div class="col-7">
           <br>
       			<form action="/savefile" method="post">
-                    <textarea id="script" name="script">{% if data %}{{data}}{% endif %}</textarea>
+                    <textarea id="code" name="script">{% if data %}{{data}}{% endif %}</textarea>
         			<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
   					<input type="text" name="cheetah_key" hidden></input>
   					{% csrf_token %}
@@ -107,7 +107,7 @@ function deploy() {
 
 function save_code() {
   var send_data = "script=";
-  send_data = send_data.concat(document.getElementById("script"));
+  send_data = send_data.concat(document.getElementById("code"));
   send_data = send_data.concat("&q=");
   send_data = send_data.concat(document.getElementById("default_save"));
   send_data = send_data.concat("&");
