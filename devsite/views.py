@@ -59,7 +59,7 @@ def openfile(request):
     return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def savefile(request):
-    my_code = request.POST['code'].encode('utf8')
+    my_code = request.POST['script'].encode('utf8')
     code_loc = request.POST['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
