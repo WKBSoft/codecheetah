@@ -1,5 +1,6 @@
-#This webserver application receives and processes requests to update the server. It is an agent running on all systems.
-#test comment
+#This webserver application receives and processes requests to update the server. 
+#It is an agent running on all systems in a CodeCheetah Network.
+
 from flask import Flask
 import os
 
