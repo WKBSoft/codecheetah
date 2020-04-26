@@ -48,11 +48,7 @@
           <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
           <input class="btn btn-primary" type="submit" value="Save" />
         </form>  
-  		<form action="/deploy_code" method="post">
-                {% csrf_token %}
-          		<input type="text" name="cheetah_key" hidden></input>
-        		<input class="btn btn-primary" type="submit" value="Deploy"/>
-		</form>
+        <input class="btn btn-primary" onclick="load_response('/deploy_code',deploy)" value="Deploy"/>
 		{% if repo_accordion %}
   		{{repo_accordion|safe}}
 		{% endif %}
@@ -83,10 +79,31 @@ document.getElementById("my_network").className = "none";
 var active_page = "{% if active_page %}{{active_page}}{% endif %}";
 document.getElementById(active_page).className = "active";
 
-var cheetah_keys = document.getElementsByName("cheetah_key")
+var cheetah_keys = document.getElementsByName("cheetah_key");
 for (i=0; i<cheetah_keys.length; i++) {
   cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
 }
+  
+function load_response(url, cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      cFunction(this);
+    }
+  };
+  var send_data = "cheetah_key=".concat(sessionStorage.getItem("cheetah_key"));
+  var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+  var send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(send_data);
+}
+  
+function deploy(xhttp) {
+  alert(xhttp.responseText);
+}
+
   
 </script>
 
