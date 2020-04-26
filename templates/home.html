@@ -42,7 +42,7 @@
 <br><br><br>
 <div class="container-fluid d-flex flex-column flex-grow-1 vh-100 overflow-hidden">
   <div class="row flex-grow-1 overflow-hidden">
-    <div class="col mh-100 overflow-auto py-2 text-right">
+    <div class="col">
 		{% if repo_accordion %}
   		{{repo_accordion|safe}}
 		{% endif %}
@@ -64,9 +64,8 @@
 				</p>
 		</div>
 		<div class=col>
-          	<input class="btn btn-warning" onclick="" value="Save" />
-      		<br>
-        	<input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/>
+          	<p><input class="btn btn-warning" onclick="" value="Save" /></p>
+        	<p><input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/></p>
 		</div>
 	</div>
 </div>
