@@ -107,7 +107,8 @@ function deploy() {
   
 function save() {
   send_data = "q=".concat(document.getElementById("default_save").value);
-  send_data = send_data.concat("&code=".concat(document.getElementById("code").value));
+  send_data = send_data.concat("&code=");
+  send_data = send_data.concat(document.getElementById("code").value);
   send_data = send_data.concat("&")
   return send_data
   
