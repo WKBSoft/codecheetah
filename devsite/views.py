@@ -77,6 +77,7 @@ def savefile(request):
 
 def deploy_button(request):
     if check_login(request):
-        deploy_code.deploy(request)
-    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion}))
+        deploy_result = deploy_code.deploy(request)
+    else:
+        deploy_result = "Authentication failed!"
+    return HttpResponse(deploy_result,"text/plain")
