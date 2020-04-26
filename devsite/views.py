@@ -65,7 +65,8 @@ def savefile(request):
     code_loc = request.POST['q']
     code_loc_list = code_loc.split('.')
     code_type = code_loc_list[len(code_loc_list)-1]
-    repo_loc = '/home/ec2-user/repos/'   code_loc.split('/')[0]
+    repo_loc = '/home/ec2-user/repos/'
+    code_loc.split('/')[0]
     if check_login(request):
         try:
             with open("/home/ec2-user/repos/" code_loc,'w ') as f:
