@@ -89,7 +89,7 @@ function load_response(url, cFunction) {
     }
   };
   var send_data = cFunction();
-  send_data = send_data.concat("cheetah_key=")
+  send_data = send_data.concat("cheetah_key=");
   send_data = send_data.concat(sessionStorage.getItem("cheetah_key"));
   var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
   send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
