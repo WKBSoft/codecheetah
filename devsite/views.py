@@ -71,9 +71,9 @@ def savefile(request):
         try:
             with open("/home/ec2-user/repos/"+ code_loc,'w ') as f:
                 f.write(my_code)
-            os.system('git -C ' repo_loc ' add .')
-            os.system('git -C ' repo_loc " commit -m 'auto commit'")
-            os.system('git -C ' repo_loc ' push origin master')
+            os.system('git -C ' +repo_loc+ ' add .')
+            os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
+            os.system('git -C ' +repo_loc+ ' push origin master')
             response = "Success"
         except:
             response = "Failure"
