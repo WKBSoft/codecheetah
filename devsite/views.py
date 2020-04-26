@@ -65,15 +65,18 @@ def savefile(request):
     code_type = code_loc_list[len(code_loc_list)-1]
     repo_loc = '/home/ec2-user/repos/' + code_loc.split('/')[0]
     if check_login(request):
-        with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
-            f.write(my_code)
-        os.system('git -C '+repo_loc+' add .')
-        os.system('git -C '+repo_loc+" commit -m 'auto commit'")
-        os.system('git -C '+repo_loc+' push origin master')
+        try:
+            with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
+                f.write(my_code)
+            os.system('git -C '+repo_loc+' add .')
+            os.system('git -C '+repo_loc+" commit -m 'auto commit'")
+            os.system('git -C '+repo_loc+' push origin master')
+            response = "Success"
+        except:
+            response = "Failure"
     else:
-        my_code = "Access denied"
-    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return(render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
+        response = "Access denied"
+    return HttpResponse(response,"text/plain")
 
 def deploy_button(request):
     if check_login(request):
