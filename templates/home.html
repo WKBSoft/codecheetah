@@ -52,7 +52,7 @@
           <br>
       			<form action="/savefile" method="post">
                     <textarea id="code" name="code">{% if data %}{{data}}{% endif %}</textarea>
-        			<input type="text" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
+        			<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
   					<input type="text" name="cheetah_key" hidden></input>
   					{% csrf_token %}
                     <input class="btn btn-primary" type="submit" value="Save" />
@@ -85,10 +85,11 @@ function load_response(url, cFunction) {
   xhttp=new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      cFunction(this);
+      notify_result(this);
     }
   };
-  var send_data = "cheetah_key=".concat(sessionStorage.getItem("cheetah_key"));
+  var send_data = cFunction();
+  var send_data = send_data.concat("cheetah_key=".concat(sessionStorage.getItem("cheetah_key")));
   var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
   var send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
   xhttp.open("POST", url, true);
@@ -96,8 +97,20 @@ function load_response(url, cFunction) {
   xhttp.send(send_data);
 }
   
-function deploy(xhttp) {
+function notify_result(xhttp) {
   alert(xhttp.responseText);
+}
+  
+function deploy() {
+ return ""; 
+}
+  
+function save() {
+  send_data = "q=".concat(document.getElementById("default_save").value);
+  send_data = send_data.concat("&code=".concat(document.getElementById("code").value));
+  send_data = send_data.concat("&")
+  return send_data
+  
 }
 
   
