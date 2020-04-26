@@ -7,8 +7,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    os.system("git -C /home/ec2-user/devsite pull origin")
-    return "Step 2 successful"
+    try:
+        os.system("git -C /home/ec2-user/devsite pull origin")
+    	return "Deployment successful"
+    except:
+        return "Deployment failed"
 
 if __name__ == "__main__":
     app.run()
