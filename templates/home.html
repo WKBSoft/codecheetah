@@ -1,1 +1,693 @@
-".concat(document.getElementById("code").value))
+
+<!DOCTYPE html>
+<html>
+<title>CodeCheetah</title>
+<meta charset="utf-8"/>
+<link rel="icon" href="https://image.flaticon.com/icons/svg/490/490119.svg">
+<link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/docs.css">
+
+<link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/codemirror.css">
+<link rel="stylesheet" href="https://wkbdevsite.s3.us-east-2.amazonaws.com/homepage.css">
+<script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/codemirror.js"></script>
+<script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/matchbrackets.js"></script>
+<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">CodeCheetah</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li id="code_page" class="nav-item">
+        <a class="nav-link" href="/">Code</a>
+      </li>
+      <li id="my_network" class="nav-item">
+        <a class="nav-link" href="/my_network">My Network</a>
+      </li>                                    
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid bg-secondary">
+  <br><br><br>
+  <div class="row flex-grow-1 overflow-hidden">
+    <div class="col">
+		
+  				
+<div class="accordion" id="accordion_devsite">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite" aria-expanded="false" aria-controls="collapse_devsite">
+    	devsite
+    </button>
+    <div id="collapse_devsite" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2FREADME.md&active=code_page">
+    	README.md
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdb.sqlite3&active=code_page">
+    	db.sqlite3
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fmanage.py&active=code_page">
+    	manage.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemp.py&active=code_page">
+    	temp.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fwebsite_server.service&active=code_page">
+    	website_server.service
+    </a>
+		
+<div class="accordion" id="accordion_devsite_devsite">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite_devsite" aria-expanded="false" aria-controls="collapse_devsite_devsite">
+    	devsite
+    </button>
+    <div id="collapse_devsite_devsite" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite_devsite">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2F__init__.py&active=code_page">
+    	__init__.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2F__init__.pyc&active=code_page">
+    	__init__.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fsettings.py&active=code_page">
+    	settings.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fsettings.pyc&active=code_page">
+    	settings.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Furls.py&active=code_page">
+    	urls.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Furls.pyc&active=code_page">
+    	urls.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fviews.py&active=code_page">
+    	views.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fviews.pyc&active=code_page">
+    	views.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fwsgi.py&active=code_page">
+    	wsgi.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Fwsgi.pyc&active=code_page">
+    	wsgi.pyc
+    </a>
+		
+<div class="accordion" id="accordion_devsite_devsite_localviews">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite_devsite_localviews" aria-expanded="false" aria-controls="collapse_devsite_devsite_localviews">
+    	localviews
+    </button>
+    <div id="collapse_devsite_devsite_localviews" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite_devsite_localviews">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Flocalviews%2Fcontent_gen.py&active=code_page">
+    	content_gen.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Flocalviews%2Fcontent_gen.pyc&active=code_page">
+    	content_gen.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fdevsite%2Flocalviews%2Fdeploy_code.py&active=code_page">
+    	deploy_code.py
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_devsite_server">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite_server" aria-expanded="false" aria-controls="collapse_devsite_server">
+    	server
+    </button>
+    <div id="collapse_devsite_server" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite_server">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fserver%2Fdeploy_server.py&active=code_page">
+    	deploy_server.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Fserver%2Fdeploy_server.service&active=code_page">
+    	deploy_server.service
+    </a>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_devsite_templates">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite_templates" aria-expanded="false" aria-controls="collapse_devsite_templates">
+    	templates
+    </button>
+    <div id="collapse_devsite_templates" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite_templates">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fhome.html&active=code_page">
+    	home.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Flanding.html&active=code_page">
+    	landing.html
+    </a>
+		
+<div class="accordion" id="accordion_devsite_templates_import_scripts">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_devsite_templates_import_scripts" aria-expanded="false" aria-controls="collapse_devsite_templates_import_scripts">
+    	import_scripts
+    </button>
+    <div id="collapse_devsite_templates_import_scripts" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_devsite_templates_import_scripts">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Fcodemirror.css&active=code_page">
+    	codemirror.css
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Fcodemirror.js&active=code_page">
+    	codemirror.js
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Fdocs.css&active=code_page">
+    	docs.css
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Finfo.html&active=code_page">
+    	info.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Fmatchbrackets.js&active=code_page">
+    	matchbrackets.js
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Fpython.js&active=code_page">
+    	python.js
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=devsite%2Ftemplates%2Fimport_scripts%2Ftest.js&active=code_page">
+    	test.js
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_homepage">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage" aria-expanded="false" aria-controls="collapse_homepage">
+    	homepage
+    </button>
+    <div id="collapse_homepage" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2FREADME.md&active=code_page">
+    	README.md
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fdb.sqlite3&active=code_page">
+    	db.sqlite3
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fmanage.py&active=code_page">
+    	manage.py
+    </a>
+		
+<div class="accordion" id="accordion_homepage_homepage">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage_homepage" aria-expanded="false" aria-controls="collapse_homepage_homepage">
+    	homepage
+    </button>
+    <div id="collapse_homepage_homepage" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage_homepage">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2F__init__.py&active=code_page">
+    	__init__.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2F__init__.pyc&active=code_page">
+    	__init__.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fmodels.py&active=code_page">
+    	models.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fmodels.pyc&active=code_page">
+    	models.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fsettings.py&active=code_page">
+    	settings.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fsettings.pyc&active=code_page">
+    	settings.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Furls.py&active=code_page">
+    	urls.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Furls.pyc&active=code_page">
+    	urls.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fviews.py&active=code_page">
+    	views.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fviews.py.save&active=code_page">
+    	views.py.save
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fviews.py.save.1&active=code_page">
+    	views.py.save.1
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fviews.pyc&active=code_page">
+    	views.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fwsgi.py&active=code_page">
+    	wsgi.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Fwsgi.pyc&active=code_page">
+    	wsgi.pyc
+    </a>
+		
+<div class="accordion" id="accordion_homepage_homepage_localviews">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage_homepage_localviews" aria-expanded="false" aria-controls="collapse_homepage_homepage_localviews">
+    	localviews
+    </button>
+    <div id="collapse_homepage_homepage_localviews" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage_homepage_localviews">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Flocalviews%2Ftestfile.txt&active=code_page">
+    	testfile.txt
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Flocalviews%2Fukrainian.py&active=code_page">
+    	ukrainian.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fhomepage%2Flocalviews%2Fukrainian.pyc&active=code_page">
+    	ukrainian.pyc
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_homepage_s3_files">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage_s3_files" aria-expanded="false" aria-controls="collapse_homepage_s3_files">
+    	s3_files
+    </button>
+    <div id="collapse_homepage_s3_files" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage_s3_files">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fhome_content.html&active=code_page">
+    	home_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian_content.html&active=code_page">
+    	ukrainian_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fworkout_content.html&active=code_page">
+    	workout_content.html
+    </a>
+		
+<div class="accordion" id="accordion_homepage_s3_files_ukrainian">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage_s3_files_ukrainian" aria-expanded="false" aria-controls="collapse_homepage_s3_files_ukrainian">
+    	ukrainian
+    </button>
+    <div id="collapse_homepage_s3_files_ukrainian" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage_s3_files_ukrainian">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian%2Faccent_content.html&active=code_page">
+    	accent_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian%2Fbooks_content.html&active=code_page">
+    	books_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian%2Fflashcards_content.html&active=code_page">
+    	flashcards_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian%2Fprogress_content.html&active=code_page">
+    	progress_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Fs3_files%2Fukrainian%2Fwritings_content.html&active=code_page">
+    	writings_content.html
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_homepage_templates">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_homepage_templates" aria-expanded="false" aria-controls="collapse_homepage_templates">
+    	templates
+    </button>
+    <div id="collapse_homepage_templates" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_homepage_templates">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Ftemplates%2Fhome.html&active=code_page">
+    	home.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=homepage%2Ftemplates%2Freader.html&active=code_page">
+    	reader.html
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_balldata">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_balldata" aria-expanded="false" aria-controls="collapse_balldata">
+    	balldata
+    </button>
+    <div id="collapse_balldata" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_balldata">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=balldata%2FLICENSE&active=code_page">
+    	LICENSE
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=balldata%2FREADME.md&active=code_page">
+    	README.md
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=balldata%2Fnbagen.py&active=code_page">
+    	nbagen.py
+    </a>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_vitamova">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova" aria-expanded="false" aria-controls="collapse_vitamova">
+    	vitamova
+    </button>
+    <div id="collapse_vitamova" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2FREADME.md&active=code_page">
+    	README.md
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fmanage.py&active=code_page">
+    	manage.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fdb.sqlite3&active=code_page">
+    	db.sqlite3
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fwebsite_server.service&active=code_page">
+    	website_server.service
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Ftemp.py&active=code_page">
+    	temp.py
+    </a>
+		
+<div class="accordion" id="accordion_vitamova_vitamova">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_vitamova" aria-expanded="false" aria-controls="collapse_vitamova_vitamova">
+    	vitamova
+    </button>
+    <div id="collapse_vitamova_vitamova" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_vitamova">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__init__.py&active=code_page">
+    	__init__.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Fasgi.py&active=code_page">
+    	asgi.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Fwsgi.py&active=code_page">
+    	wsgi.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Fsettings.py&active=code_page">
+    	settings.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Furls.py&active=code_page">
+    	urls.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Fviews.py&active=code_page">
+    	views.py
+    </a>
+		
+<div class="accordion" id="accordion_vitamova_vitamova___pycache__">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_vitamova___pycache__" aria-expanded="false" aria-controls="collapse_vitamova_vitamova___pycache__">
+    	__pycache__
+    </button>
+    <div id="collapse_vitamova_vitamova___pycache__" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_vitamova___pycache__">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__pycache__%2F__init__.cpython-37.pyc&active=code_page">
+    	__init__.cpython-37.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__pycache__%2Fsettings.cpython-37.pyc&active=code_page">
+    	settings.cpython-37.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__pycache__%2Furls.cpython-37.pyc&active=code_page">
+    	urls.cpython-37.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__pycache__%2Fviews.cpython-37.pyc&active=code_page">
+    	views.cpython-37.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2F__pycache__%2Fwsgi.cpython-37.pyc&active=code_page">
+    	wsgi.cpython-37.pyc
+    </a>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_vitamova_vitamova_localviews">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_vitamova_localviews" aria-expanded="false" aria-controls="collapse_vitamova_vitamova_localviews">
+    	localviews
+    </button>
+    <div id="collapse_vitamova_vitamova_localviews" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_vitamova_localviews">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Flocalviews%2Fukrainian.py&active=code_page">
+    	ukrainian.py
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Flocalviews%2Fcontent_gen.py&active=code_page">
+    	content_gen.py
+    </a>
+		
+<div class="accordion" id="accordion_vitamova_vitamova_localviews___pycache__">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_vitamova_localviews___pycache__" aria-expanded="false" aria-controls="collapse_vitamova_vitamova_localviews___pycache__">
+    	__pycache__
+    </button>
+    <div id="collapse_vitamova_vitamova_localviews___pycache__" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_vitamova_localviews___pycache__">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Flocalviews%2F__pycache__%2Fukrainian.cpython-37.pyc&active=code_page">
+    	ukrainian.cpython-37.pyc
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fvitamova%2Flocalviews%2F__pycache__%2Fcontent_gen.cpython-37.pyc&active=code_page">
+    	content_gen.cpython-37.pyc
+    </a>
+
+	</div>
+</div>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_vitamova_templates">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_templates" aria-expanded="false" aria-controls="collapse_vitamova_templates">
+    	templates
+    </button>
+    <div id="collapse_vitamova_templates" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_templates">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Ftemplates%2Fhome.html&active=code_page">
+    	home.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Ftemplates%2Freader.html&active=code_page">
+    	reader.html
+    </a>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_vitamova_s3_files">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_s3_files" aria-expanded="false" aria-controls="collapse_vitamova_s3_files">
+    	s3_files
+    </button>
+    <div id="collapse_vitamova_s3_files" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_s3_files">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fs3_files%2Fhome_content.html&active=code_page">
+    	home_content.html
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=vitamova%2Fs3_files%2Fread_content.html&active=code_page">
+    	read_content.html
+    </a>
+		
+<div class="accordion" id="accordion_vitamova_s3_files_books">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_vitamova_s3_files_books" aria-expanded="false" aria-controls="collapse_vitamova_s3_files_books">
+    	books
+    </button>
+    <div id="collapse_vitamova_s3_files_books" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_vitamova_s3_files_books">
+		<!-- collapse content vitamova/s3_files/books-->
+	</div>
+</div>
+
+	</div>
+</div>
+
+	</div>
+</div>
+		
+<div class="accordion" id="accordion_machine_learning">
+	<button class="btn btn-light btn-block btn-sm collapsed" type="button" data-toggle="collapse" data-target="#collapse_machine_learning" aria-expanded="false" aria-controls="collapse_machine_learning">
+    	machine_learning
+    </button>
+    <div id="collapse_machine_learning" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_machine_learning">
+				
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=machine_learning%2FREADME.md&active=code_page">
+    	README.md
+    </a>
+		
+	<a class="btn btn-light btn-block btn-sm" href="/openfile?q=machine_learning%2Fcheckers.py&active=code_page">
+    	checkers.py
+    </a>
+
+	</div>
+</div>
+
+		
+  		</div>
+		<div class="col-7">
+          <br>
+      			<form action="/savefile" method="post">
+                    <textarea id="code" name="code">&quot;.concat(document.getElementById(&quot;code&quot;).value))</textarea>
+        			<input type="text" id="default_save" name="q" value="devsite/templates/home.html" hidden></input>
+  					<input type="text" name="cheetah_key" hidden></input>
+  					<input type='hidden' name='csrfmiddlewaretoken' value='aH2xmlurLrROEMW9AZ7Gv7tFGI9cuJRRGzGhmurZJnKoA1V4Chh6kwrjn5xgrFPa' />
+                    <input class="btn btn-primary" type="submit" value="Save" />
+      			</form>
+				<p>
+					
+					<script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/htmlmixed.js"></script>
+<script src="https://codemirror.net/mode/xml/xml.js"></script>
+<script src="https://codemirror.net/mode/javascript/javascript.js"></script>
+<script src="https://codemirror.net/mode/css/css.js"></script>
+<script src="https://codemirror.net/mode/vbscript/vbscript.js"></script>
+
+    <script>
+      // Define an extended mixed-mode that understands vbscript and
+      // leaves mustache/handlebars embedded templates in html mode
+      var mixedMode = {
+        name: "htmlmixed",
+        scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+                       mode: null},
+                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+                       mode: "vbscript"}]
+      };
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: mixedMode,
+        selectionPointer: true
+      });
+    </script>
+
+					
+				</p>
+		</div>
+		<div class=col>
+          	<p><input class="btn btn-warning" onclick="load_response('/savefile',save)" value="Save" /></p>
+        	<p><input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/></p>
+		</div>
+	</div>
+</div>
+<script>
+document.getElementById("code_page").className = "none";
+document.getElementById("my_network").className = "none";
+var active_page = "code_page";
+document.getElementById(active_page).className = "active";
+
+var cheetah_keys = document.getElementsByName("cheetah_key");
+for (i=0; i<cheetah_keys.length; i++) {
+  cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
+}
+  
+function load_response(url, cFunction) {
+  var xhttp;
+  xhttp=new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      notify_result(this);
+    }
+  };
+  var send_data = cFunction();
+  var send_data = send_data.concat("cheetah_key=".concat(sessionStorage.getItem("cheetah_key")));
+  var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
+  var send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(send_data);
+}
+  
+function notify_result(xhttp) {
+  alert(xhttp.responseText);
+}
+  
+function deploy() {
+ return ""; 
+}
+  
+function save() {
+  send_data = "q=".concat(document.getElementById("default_save").value);
+  send_data = send_data.concat("&code=".concat(document.getElementById("code").value));
+  send_data = send_data.concat("&");
+  alert(send_data);
+  return send_data;
+  
+}
+
+  
+</script>
+
+</html>
+
