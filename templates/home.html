@@ -43,12 +43,8 @@
 <div class="container-fluid d-flex flex-column flex-grow-1 vh-100 overflow-hidden">
   <div class="row flex-grow-1 overflow-hidden">
     <div class="col mh-100 overflow-auto py-2 text-right">
-        <form action="/savefile" method="post">
-          <input type="text" name="q" hidden value="{% if default_save %}{{default_save}}{% endif %}"></input>
-          <input type="text" id="active_page" name="active" hidden value="{% if active_page %}{{active_page}}{% endif %}"></input>
-          <input class="btn btn-primary" type="submit" value="Save" />
-        </form>  
-        <input class="btn btn-primary" onclick="load_response('/deploy_code',deploy)" value="Deploy"/>
+        <input class="btn btn-warning" onclick="" value="Save" />
+        <input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/>
 		{% if repo_accordion %}
   		{{repo_accordion|safe}}
 		{% endif %}
