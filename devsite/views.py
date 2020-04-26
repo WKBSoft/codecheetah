@@ -68,7 +68,7 @@ def savefile(request):
     repo_loc = '/home/ec2-user/repos/'+code_loc.split('/')[0]
     if check_login(request):
         try:
-            with open("/home/ec2-user/repos/"+code_loc,'w ') as f:
+            with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
                 f.write(my_code)
             os.system('git -C ' +repo_loc+ ' add .')
             os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
