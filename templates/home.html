@@ -53,18 +53,18 @@
           <br>
         <textarea id="code" name="script" form="code_save_form">{% if data %}{{data}}{% endif %}</textarea>
 		</div>
-		<div class="col d-flex">
+		<div class="col">
           	<div class="row">
               <div class="col">
                 <form action="/savefile" method="post" id="code_save_form">
                   {% csrf_token %}
               	<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
   				<input type="text" name="cheetah_key" hidden></input>
-              	<input class="btn btn-warning" type="submit" value="Save" />
+              	<input class="btn btn-warning btn-block" type="submit" value="Save" />
                 </form>
               </div>
     		  	<div class="col">
-              		<button class="btn btn-warning" onclick="load_response('/deploy_code',deploy)">Deploy</button>
+              		<button class="btn btn-warning btn-block" onclick="load_response('/deploy_code',deploy)">Deploy</button>
                 </div>
   			</div>
 		</div>
