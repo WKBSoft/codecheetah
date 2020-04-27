@@ -79,7 +79,7 @@ def savefile(request):
     else:
         response = "Access denied"
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return render(request,'home.html',{'data':my_code,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion})
+    return HttpResponseRedirect("/openfile?q="+code_loc)
 
 def deploy_button(request):
     if check_login(request):
