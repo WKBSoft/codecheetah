@@ -74,12 +74,13 @@ def savefile(request):
             os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
             os.system('git -C ' +repo_loc+ ' push origin master')
             response = "Success"
+            return HttpResponseRedirect("/openfile?q="+code_loc)
         except:
             response = "Failure"
     else:
         response = "Access denied"
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
-    return HttpResponseRedirect("/openfile?q="+code_loc)
+    return HttpResponse(response,"text/plain")
 
 def deploy_button(request):
     if check_login(request):
