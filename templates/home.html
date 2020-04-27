@@ -58,13 +58,11 @@
                     <input class="btn btn-primary" type="submit" value="Save" />
       			</form>
 				<p>
-					{% if page_content %}
-					{{page_content|safe}}
-					{% endif %}
+
 				</p>
 		</div>
 		<div class=col>
-          	<p><input class="btn btn-warning" onclick="load_response('/savefile',test_save)" value="Save" /></p>
+          	<p><input class="btn btn-warning" onclick="load_response('/savefile',save_code)" value="Save" /></p>
         	<p><input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/></p>
 		</div>
 	</div>
@@ -115,10 +113,6 @@ function save_code() {
   send_data = send_data.concat(decodeURI(document.getElementById("default_save").value));
   send_data = send_data.concat("&");
   return send_data;
-}
-  
-function test_save() {
-  alert(document.getElementById("code").value);
 }
   
 </script>
