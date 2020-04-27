@@ -3,7 +3,6 @@ function cheetah_init() {
 	for (i=0; i<cheetah_keys.length; i++) {
   		cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
     }
-    alert(document.getElementById("cheetah_key_save").value);
 }
 
 function load_response(url, cFunction) {
