@@ -126,9 +126,11 @@ function notify_result(xhttp) {
 }
   
 function deploy() {
- send_data = "ip_addr=".concat(document.getElementById("ip_addr").value);
- send_data = send_data.concat("&");
- return send_data; 
+  send_data = "ip_addr=".concat(document.getElementById("ip_addr").value);
+  send_data = send_data.concat("&default_save=");
+  send_data = send_data.concat(document.getElementById("default_save").value);
+  send_data = send_data.concat("&");
+  return send_data; 
 }
 
 function save_code() {
