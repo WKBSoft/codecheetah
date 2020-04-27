@@ -8,6 +8,5 @@ def deploy(request):
     repo = request.POST['default_save'].split("/")[0]
     if path.isdir("/home/ec2-user/repos/"+repo+"/s3_files"):
         s3_bucket = request.POST['s3_bucket']
-        
     return deploy_result
     
