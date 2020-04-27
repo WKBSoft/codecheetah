@@ -1,9 +1,4 @@
 function cheetah_init() {
-	document.getElementById("code_page").className = "none";
-	document.getElementById("my_network").className = "none";
-	var active_page = "{% if active_page %}{{active_page}}{% endif %}";
-	document.getElementById(active_page).className = "active";
-
 	var cheetah_keys = document.getElementsByName("cheetah_key");
 	for (i=0; i<cheetah_keys.length; i++) {
   		cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
