@@ -109,5 +109,12 @@
 					{% endif %}
 				</p>
 <script src="https://wkbdevsite.s3.us-east-2.amazonaws.com/cheetah.js"></script>
+
+<script>
+  var cheetah_keys = document.getElementsByName("cheetah_key");
+for (i=0; i<cheetah_keys.length; i++) {
+  cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
+}
+</script>
 </body>
 </html>
