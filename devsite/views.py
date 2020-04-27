@@ -59,6 +59,8 @@ def openfile(request):
     return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def savefile(request):
+    with open("temp.txt","w+") as f:
+        f.write(str(request.POST))
     my_code = request.POST['script']
     code_loc = request.POST['q']
     code_loc_list = code_loc.split('.')
