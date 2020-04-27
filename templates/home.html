@@ -55,7 +55,7 @@
                 <form action="/savefile" method="post" id="code_save_form">
                   {% csrf_token %}
               	<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
-  				<input type="text" name="cheetah_key" hidden></input>
+  				<input id="cheetah_key_save" type="text" name="cheetah_key" hidden></input>
               	<input class="btn btn-warning btn-block" type="submit" value="Save" />
                 </form>
               </div>
