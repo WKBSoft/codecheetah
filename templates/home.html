@@ -34,10 +34,7 @@
         <a class="nav-link" href="/my_network">My Network</a>
       </li>                                    
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <button class="btn btn-outline-warning my-2 my-sm-0" onclick="test()">Test</button>
   </div>
 </nav>
 
@@ -120,6 +117,10 @@ function save_code() {
   send_data = send_data.concat(decodeURI(document.getElementById("default_save").value));
   send_data = send_data.concat("&");
   return send_data;
+}
+  
+function test() {
+ alert(document.getElementById("code").textContent);
 }
   
 </script>
