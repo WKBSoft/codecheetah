@@ -41,10 +41,11 @@
 <div class="container-fluid d-flex flex-column flex-grow-1 vh-100 overflow-hidden">
   <br><br><br>
   <div class="row flex-grow-1 overflow-hidden">
-    <div class="col-2 mh-100 overflow-auto py-2">
+    <div class="col mh-100 overflow-auto py-2">
 		{% if repo_accordion %}
   		{{repo_accordion|safe}}
 		{% endif %}
+        <br><br><br><br><br>
   		</div>
 		<div class="col-7">
         <textarea id="code" name="script" form="code_save_form">{% if data %}{{data}}{% endif %}</textarea>
