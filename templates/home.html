@@ -59,7 +59,7 @@
       			</form>
 				<p>
 					{% if page_content %}
-					{{page_content}}
+					{{page_content|safe}}
 					{% endif %}
 				</p>
 		</div>
