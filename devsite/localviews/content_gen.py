@@ -93,7 +93,7 @@ def write_html(tree):
                     loc_loc_html = file_button.replace("<!-- file name -->",y)
                     file_link = x + "/" + y
                     file_link = file_link.replace("/","%2F")
-                    loc_loc_html = loc_loc_html.replace("/openfile?q=","/openfile?q="+file_link+"&active=code_page")
+                    loc_loc_html = loc_loc_html.replace("/openfile?q=","/openfile?q="+file_link)
                     loc_html += loc_loc_html
             if "dirs" in tree[x]:
                 for y in tree[x]["dirs"]:
