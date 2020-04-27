@@ -51,21 +51,22 @@
   		</div>
 		<div class="col-7">
           <br>
-      			<form action="/savefile" method="post">
-                    <textarea id="code" name="script">{% if data %}{{data}}{% endif %}</textarea>
-        			<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
-  					<input type="text" name="cheetah_key" hidden></input>
-  					{% csrf_token %}
-
+        <textarea id="code" name="script" form="code_save_form">{% if data %}{{data}}{% endif %}</textarea>
 		</div>
 		<div class="col d-flex">
-          
-          	<p>
-              <input class="btn btn-warning" type="submit" value="Save" />
-            </form>
-  			&nbsp
-        	<button class="btn btn-warning" onclick="load_response('/deploy_code',deploy)">Deploy</button>
-  			</p>
+          	<div class="row">
+              <div class="col">
+                <form action="/savefile" method="post" id="code_save_form">
+                  {% csrf_token %}
+              	<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
+  				<input type="text" name="cheetah_key" hidden></input>
+              	<input class="btn btn-warning" type="submit" value="Save" />
+                </form>
+              </div>
+    		  	<div class="col">
+              		<button class="btn btn-warning" onclick="load_response('/deploy_code',deploy)">Deploy</button>
+                </div>
+  			</div>
 		</div>
 	</div>
 </div>
