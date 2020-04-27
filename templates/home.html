@@ -55,20 +55,20 @@
         			<input type="text" id="default_save" name="q" value="{% if default_save %}{{default_save}}{% endif %}" hidden></input>
   					<input type="text" name="cheetah_key" hidden></input>
   					{% csrf_token %}
-                    <input class="btn btn-primary" type="submit" value="Save" />
-      			</form>
+
+		</div>
+		<div class=col>
+          	<p><input class="btn btn-warning" type="submit" value="Save" /></p>
+            </form>
+        	<p><input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/></p>
+		</div>
+	</div>
+</div>
 				<p>
 					{% if page_content %}
 					{{page_content|safe}}
 					{% endif %}
 				</p>
-		</div>
-		<div class=col>
-          	<p><input class="btn btn-warning" onclick="load_response('/savefile',save_code)" value="Save" /></p>
-        	<p><input class="btn btn-warning" onclick="load_response('/deploy_code',deploy)" value="Deploy"/></p>
-		</div>
-	</div>
-</div>
 <script>
 document.getElementById("code_page").className = "none";
 document.getElementById("my_network").className = "none";
