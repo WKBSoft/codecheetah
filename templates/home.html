@@ -79,7 +79,8 @@
          </button>
        </div>
       <div class="modal-body">
-        <p>Destination IP<input id="ip_addr" type="text" name="ip_addr" required></input></p>
+        <p>Destination IP<input id="ip_addr" type="text"></input></p>
+        <p>S3 Bucket<input id="s3_bucket" type="text"></input></p>
       </div>
       <div class="modal-footer">
         <input type="button" class="btn btn-block btn-warning" value="Deploy" onclick="load_response('/deploy_code',deploy)"></input>
@@ -129,7 +130,8 @@ function deploy() {
   send_data = "ip_addr=".concat(document.getElementById("ip_addr").value);
   send_data = send_data.concat("&default_save=");
   send_data = send_data.concat(document.getElementById("default_save").value);
-  send_data = send_data.concat("&");
+  send_data = send_data.concat("&s3_bucket=");
+  send_data = send_data.concat(document.getElementById("s3_bucket").value);  send_data = send_data.concat("&");
   return send_data; 
 }
 
