@@ -60,11 +60,32 @@
                 </form>
               </div>
     		  	<div class="col">
-              		<button class="btn btn-warning btn-block" onclick="load_response('/deploy_code',deploy)">Deploy</button>
+              		<button class="btn btn-warning btn-block" data-toggle="modal" data-target="#deployModal">Deploy</button>
                 </div>
   			</div>
 		</div>
 	</div>
+</div>
+
+
+  <!-- Deploy Modal -->
+  <div class="modal fade" id="deployModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Deploy Your Program</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      <div class="modal-body">
+        <p>Destination IP<input id="ip_addr" type="text" name="ip_addr" required></input></p>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn btn-block btn-warning" value="Deploy" onclick="load_response('/deploy_code',deploy)"></input>
+      </div>
+    </div>
+  </div>
 </div>
 				<p>
 					{% if page_content %}
@@ -105,7 +126,9 @@ function notify_result(xhttp) {
 }
   
 function deploy() {
- return ""; 
+ send_data = "ip_addr=".concat(document.getElementById("ip_addr").value);
+ send_data = send_data.concat("&");
+ return send_data; 
 }
 
 function save_code() {
