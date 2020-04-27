@@ -58,7 +58,9 @@
                     <input class="btn btn-primary" type="submit" value="Save" />
       			</form>
 				<p>
-
+					{% if page_content %}
+					{{page_content}}
+					{% endif %}
 				</p>
 		</div>
 		<div class=col>
