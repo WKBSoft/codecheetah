@@ -1,5 +1,3 @@
-//comment
-
 function cheetah_init() {
 	var cheetah_keys = document.getElementsByName("cheetah_key");
 	for (i=0; i<cheetah_keys.length; i++) {
