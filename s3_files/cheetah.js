@@ -48,7 +48,8 @@ function save_code() {
 }
   
 function test() {
- alert(doc.getValue());
+  alert("working");
+  alert(doc.getValue());
 }
   
 function run_code() {
