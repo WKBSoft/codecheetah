@@ -49,7 +49,7 @@ function save_code() {
   
 function test_cheetah() {
   alert("working");
-  alert(CodeMirror.doc.getValue());
+  alert(CodeMirror.Doc.getValue(false));
 }
   
 function run_code() {
