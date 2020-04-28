@@ -21,7 +21,7 @@ function load_response(url, cFunction) {
   send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  document.getElementById("run_code_result").innerHTML = "<p>".concat(send_data).concat("</p>");
+  document.getElementById("run_code_result").innerHTML = send_data;
   //xhttp.send(send_data);
 }
   
