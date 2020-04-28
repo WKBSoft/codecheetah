@@ -49,7 +49,7 @@ function save_code() {
   
 function test_cheetah() {
   alert("working");
-  alert(editor.getTextArea());
+  alert(editor.getTextArea().value);
 }
   
 function run_code() {
