@@ -13,7 +13,7 @@ function load_response(url, cFunction) {
       notify_result(this);
     }
   };
-  alert(document.getElementById("my_demo").innerHTML);
+  alert(document.getElementById("run_code_result").innerHTML);
   var send_data = cFunction();
   send_data = send_data.concat("cheetah_key=");
   send_data = send_data.concat(sessionStorage.getItem("cheetah_key"));
