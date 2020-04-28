@@ -3,7 +3,6 @@ function cheetah_init() {
 	for (i=0; i<cheetah_keys.length; i++) {
   		cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
     }
-	alert(document.getElementById("cheetah_key_save").innerHTML);
 }
 
 function load_response(url, cFunction) {
@@ -14,7 +13,7 @@ function load_response(url, cFunction) {
       notify_result(this);
     }
   };
-  alert(document.getElementById("run_code_result").innerHtml);
+  alert(document.getElementById("run_code_result").innerHTML);
   var send_data = cFunction();
   send_data = send_data.concat("cheetah_key=");
   send_data = send_data.concat(sessionStorage.getItem("cheetah_key"));
