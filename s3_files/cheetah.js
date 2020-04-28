@@ -49,7 +49,7 @@ function save_code() {
   
 function test_cheetah() {
   alert("working");
-  alert(doc.getValue());
+  alert(CodeMirror.doc.getValue());
 }
   
 function run_code() {
