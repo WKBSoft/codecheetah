@@ -1,3 +1,5 @@
+//comment
+
 function cheetah_init() {
 	var cheetah_keys = document.getElementsByName("cheetah_key");
 	for (i=0; i<cheetah_keys.length; i++) {
@@ -49,7 +51,7 @@ function save_code() {
   
 function test_cheetah() {
   alert("working");
-  alert(editor.getTextArea().value);
+  alert(editor.getValue());
 }
   
 function run_code() {
