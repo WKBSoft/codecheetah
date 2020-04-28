@@ -48,7 +48,7 @@ function save_code() {
 }
   
 function test() {
- alert(document.getElementById("code").textContent);
+ alert(doc.getValue());
 }
   
 function run_code() {
