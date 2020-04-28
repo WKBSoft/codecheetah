@@ -14,6 +14,7 @@ function load_response(url, cFunction) {
       notify_result(this);
     }
   };
+  alert(document.getElementById("run_code_result").value);
   var send_data = cFunction();
   send_data = send_data.concat("cheetah_key=");
   send_data = send_data.concat(sessionStorage.getItem("cheetah_key"));
@@ -39,7 +40,6 @@ function deploy() {
 }
 
 function save_code() {
-  alert(editor.getValue());
   var send_data = "script=";
   send_data = send_data.concat(editor.getValue());
   send_data = send_data.concat("&q=");
