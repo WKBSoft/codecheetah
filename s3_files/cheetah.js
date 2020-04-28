@@ -14,6 +14,7 @@ function load_response(url, cFunction) {
     }
   };
   var send_data = cFunction();
+  alert("update 1");
   send_data["cheetah_key"] = sessionStorage.getItem("cheetah_key");
   var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
   send_data["csrfmiddlewaretoken"] = csrf_token_value;
