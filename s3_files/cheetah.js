@@ -3,6 +3,7 @@ function cheetah_init() {
 	for (i=0; i<cheetah_keys.length; i++) {
   		cheetah_keys[i].value = sessionStorage.getItem("cheetah_key");
     }
+	alert(document.getElementById("cheetah_key_save").value);
 }
 
 function load_response(url, cFunction) {
@@ -20,7 +21,7 @@ function load_response(url, cFunction) {
   send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  document.getElementById("run_code_result").innerHtml = "<p>" + send_data "</p>";
+  document.getElementById("run_code_result").innerHtml = "<p>".concat(send_data).concat("</p>");
   //xhttp.send(send_data);
 }
   
