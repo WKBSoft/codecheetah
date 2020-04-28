@@ -47,7 +47,7 @@ function save_code() {
   return send_data;
 }
   
-function test() {
+function test_cheetah() {
   alert("working");
   alert(doc.getValue());
 }
