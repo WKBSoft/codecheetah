@@ -13,14 +13,13 @@ function load_response(url, cFunction) {
       notify_result(this);
     }
   };
-  alert(document.getElementById("run_code_result").innerHTML);
   var send_data = cFunction();
-  send_data = send_data.concat("cheetah_key=");
-  send_data = send_data.concat(sessionStorage.getItem("cheetah_key"));
+  send_data["cheetah_key"] = sessionStorage.getItem("cheetah_key");
   var csrf_token_value = document.getElementsByName("csrfmiddlewaretoken")[0].value;
-  send_data = send_data.concat("&csrfmiddlewaretoken=".concat(csrf_token_value));
+  send_data["csrfmiddlewaretoken"] = csrf_token_value;
+  send_data = JSON.stringify(send_data);
   xhttp.open("POST", url, true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.setRequestHeader("Content-type", "application/json");
   document.getElementById("run_code_result").innerHTML = send_data;
   //xhttp.send(send_data);
 }
@@ -30,20 +29,15 @@ function notify_result(xhttp) {
 }
   
 function deploy() {
-  send_data = "ip_addr=".concat(document.getElementById("ip_addr").value);
-  send_data = send_data.concat("&default_save=");
-  send_data = send_data.concat(document.getElementById("default_save").value);
-  send_data = send_data.concat("&s3_bucket=");
-  send_data = send_data.concat(document.getElementById("s3_bucket").value);  send_data = send_data.concat("&");
+  var send_data = {"ip_addr": document.getElementById("ip_addr").value};
+  send_data["default_save"] = document.getElementById("default_save").value;
+  send_data["s3_bucket"] = document.getElementById("s3_bucket").value;
   return send_data; 
 }
 
 function save_code() {
-  var send_data = "script=";
-  send_data = send_data.concat(editor.getValue());
-  send_data = send_data.concat("&q=");
-  send_data = send_data.concat(decodeURI(document.getElementById("default_save").value));
-  send_data = send_data.concat("&");
+  var send_data = {"script": editor.getValue()};
+  send_data["q"] = decodeURI(document.getElementById("default_save").value);
   return send_data;
 }
   
