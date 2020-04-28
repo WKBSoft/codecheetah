@@ -40,8 +40,6 @@ function save_code() {
   alert(editor.getValue());
   var send_data = "script=";
   send_data = send_data.concat(editor.getValue());
-  alert(document.getElementById("code").value);
-  alert(decodeURI(document.getElementById("code").value));
   send_data = send_data.concat("&q=");
   send_data = send_data.concat(decodeURI(document.getElementById("default_save").value));
   send_data = send_data.concat("&");
