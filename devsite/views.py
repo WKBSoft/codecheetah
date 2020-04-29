@@ -65,16 +65,16 @@ def savefile(request):
     code_type = code_loc_list[len(code_loc_list)-1]
     repo_loc = '/home/ec2-user/repos/'+code_loc.split('/')[0]
     if check_login(request):
-        try:
-            with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
-                f.write(my_code).encode("utf-8")
-            os.system('git -C ' +repo_loc+ ' add .')
-            os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
-            os.system('git -C ' +repo_loc+ ' push origin master')
-            response = "Success"
-            return HttpResponseRedirect("/openfile?q="+code_loc)
-        except:
-            response = "Failure"
+        #try:
+        with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
+            f.write(my_code).encode("utf-8")
+        os.system('git -C ' +repo_loc+ ' add .')
+        os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
+        os.system('git -C ' +repo_loc+ ' push origin master')
+        response = "Success"
+        return HttpResponseRedirect("/openfile?q="+code_loc)
+        #except:
+            #response = "Failure"
     else:
         response = "Access denied"
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
