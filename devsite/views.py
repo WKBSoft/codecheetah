@@ -67,7 +67,7 @@ def savefile(request):
     if check_login(request):
         #try:
         with open("/home/ec2-user/repos/"+code_loc,'w+') as f:
-            f.write(my_code).encode("utf-8")
+            f.write(my_code.encode("utf-8"))
         os.system('git -C ' +repo_loc+ ' add .')
         os.system('git -C ' +repo_loc+ " commit -m 'auto commit'")
         os.system('git -C ' +repo_loc+ ' push origin master')
