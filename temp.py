@@ -1,7 +1,7 @@
 import os
 request = {
     'script':"#test script",
-    'q':"devsite/temp_2.py"
+    'q':"vitamova/temp_2.py"
 }
 
 
