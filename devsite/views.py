@@ -40,6 +40,8 @@ def get_code_format(code_type):
     return page_content.text
 
 def home(request):
+    if 'cheetah_key' not in request.POST:
+        return HttpResponseRedirect('/login')
     repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
     code_type = "plaintext"
     return(render(request,'home.html',{'active_page':'code_page','repo_accordion':repo_accordion,'page_content':get_code_format(code_type)}))
