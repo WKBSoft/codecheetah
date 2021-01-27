@@ -7,7 +7,7 @@ import time
 import requests
 import sys
 import json
-sys.path.insert(0, '/home/ec2-user/devsite/devsite/localviews/')
+sys.path.insert(0, '/home/ubuntu/devsite/devsite/localviews/')
 import content_gen
 import deploy_code
 
@@ -48,16 +48,16 @@ def home(request):
 
 def openfile(request):
     code_loc = request.GET['q']
-    available_files = content_gen.list_contents("/home/ec2-user/repos")[1]
+    available_files = content_gen.list_contents("/home/ubuntu/repos")[1]
     if code_loc in available_files:
         code_loc_list = code_loc.split('.')
         code_type = code_loc_list[len(code_loc_list)-1]
-        with open('/home/ec2-user/repos/'+code_loc) as f:
+        with open('/home/ubuntu/repos/'+code_loc) as f:
             data = f.read()
     else:
         data = "No such file"
         code_type = "plaintext"
-    repo_accordion = content_gen.path_accordion("/home/ec2-user/repos")
+    repo_accordion = content_gen.path_accordion("/home/ubuntu/repos")
     return(render(request,'home.html',{'data':data,'active_page':'code_page','page_content':get_code_format(code_type),'default_save':code_loc,'repo_accordion':repo_accordion}))
 
 def savefile(request):

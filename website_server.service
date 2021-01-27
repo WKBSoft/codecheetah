@@ -5,9 +5,9 @@ Conflicts=getty@tty1.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /home/bellemanwesley/devsite/manage.py runserver 172.31.20.208:8000
+ExecStart=/usr/bin/python3 /home/ubuntu/devsite/manage.py runserver 127.0.0.1:1337
 StandardInput=tty-force
-User=bellemanwesley
+User=ubuntu
 
 [Install]
 WantedBy=multi-user.target
