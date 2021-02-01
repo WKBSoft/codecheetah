@@ -7,12 +7,45 @@ import time
 import requests
 import sys
 import json
-sys.path.insert(0, '/home/ubuntu/devsite/devsite/localviews/')
+import boto3
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'scripts/'))
 import content_gen
 import deploy_code
 
+def logged_in_header():
+    with open(os.path.join(BASE_DIR,"templates/sub_templates/logged_in_header.html"),"r") as f:
+        return f.read()
+
+def userpass_get():
+    s3 = boto3.resource('s3')
+    object = s3.Object('wkbdevsite','users/userpass.json')
+    return json.load(object.get()['Body'])
+    
+def userpass_put(data):
+    s3 = boto3.resource('s3')
+    object = s3.Object('wkbdevsite','users/userpass.json')
+    return object.put(Body=json.dumps(data).encode("utf-8"))
+
 def check_login(request):
-	return request.POST['cheetah_key'] == "thisismybasicsessionkey"
+    #Returns 3 results 0=correct login, 1=incorrect login, 2=no account
+    login_email = request.POST["email"]
+    login_token = request.POST["login_token"]
+    if login_email != "" and login_token != "":
+        s3 = boto3.resource('s3')
+        object = s3.Object('wkbdevsite','users/userpass.json')
+        userpass = json.load(object.get()['Body'])
+    else:
+        return 1
+    if login_email in userpass:
+        user_info = userpass[login_email]
+    else:
+        return 2
+    if user_info["token"] == login_token:
+        return 0
+    else:
+        return 1
+        
 
 def landing_page(request):
     return(render(request,"landing.html",{}))
@@ -20,7 +53,7 @@ def landing_page(request):
 def submit_login(request):
     uname = request.POST['uname']
     psswd = request.POST['psswd']
-    with open('/home/ec2-user/keys/users.json','r') as f:
+    with open(os.path.join(BASE_DIR, 'keys/users.json'),'r') as f:
         users = json.loads(f.read())
     if uname in users:
         if users[uname] == psswd:
@@ -31,6 +64,8 @@ def submit_login(request):
     else:
         return HttpResponse("login_failure", content_type="text/plain")
         
+def my_network(request):
+    return render(request,"my_network.html",{"header":logged_in_header()})
 
 def get_code_format(code_type):
     extension_map = {'py':'python','js':'javascript'}
