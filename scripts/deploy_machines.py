@@ -66,7 +66,7 @@ def webserver(github_username, github_repo, hostname, vpc_id, ACCESS_KEY, SECRET
     with open(os.path.join(BASE_DIR, 'scripts/web_server/nginx-reverse-proxy.conf'),"r") as f:
         nginx_reverse_proxy = f.read()
         
-    with open(os.path.join(BASE_DIR, 'scripts/web_server/web_server.service'),"r") as f:
+    with open(os.path.join(BASE_DIR, 'scripts/web_server/website_server.service'),"r") as f:
         web_server_service = f.read()
     
     web_server_service = web_server_service.replace("*****replace_with_project_name*****",github_repo)
@@ -76,16 +76,16 @@ def webserver(github_username, github_repo, hostname, vpc_id, ACCESS_KEY, SECRET
     commands = [
         "sudo apt -y install nginx",
         "sudo unlink /etc/nginx/sites-enabled/default",
-        "echo\""+nginx_reverse_proxy+"\"| cat > reverse-proxy.conf",
+        "curl https://raw.githubusercontent.com/bellemanwesley/devsite/master/scripts/web_server/nginx-reverse-proxy.conf -o reverse-proxy.conf",
         "sudo cp reverse-proxy.conf /etc/nginx/sites-available/reverse-proxy.conf",
         "sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf",
         "sudo nginx",
         "git clone "+github_url,
-        "echo\""+web_server_service+"\"| cat > website_server.service",
+        "curl https://raw.githubusercontent.com/bellemanwesley/devsite/master/scripts/web_server/website_server.service -o website_server.service",
         "sudo cp website_server.service /etc/systemd/system/website_server.service",
         "sudo systemctl daemon-reload",
         "sudo systemctl enable website_server",
-        "sudo systemctl start web_server"
+        "sudo systemctl start website_server"
         ]
     sent_script = False
     while not sent_script:
