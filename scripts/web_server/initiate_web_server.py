@@ -1,4 +1,5 @@
 import sys
+import secrets
 
 systemd_file = '''
 
@@ -21,3 +22,6 @@ systemd_file = systemd_file.replace("*****replace_with_project_name*****",sys.ar
 
 with open("website_server.service","w+") as f:
     f.write(systemd_file)
+    
+with open("keys/django_key.txt","w+") as f:
+    f.write(secrets.token_hex(64))
