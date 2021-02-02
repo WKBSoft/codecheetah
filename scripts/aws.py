@@ -72,11 +72,3 @@ def launch_instance(ACCESS_KEY,SECRET_KEY,security_group):
         sleep(5)
     sleep(5)
     return instance_info.private_ip_address,instance_info.public_ip_address,instance_id
-
-with open("/home/ubuntu/keys/aws_key.txt","r") as f:
-    keys = f.read().split("\n")
-ACCESS_KEY = keys[0]
-SECRET_KEY = keys[1]
-
-with open("/home/ubuntu/keys/MyKeyPair.pem","r") as f:
-    ssh_key = f.read()

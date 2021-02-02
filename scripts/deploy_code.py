@@ -49,11 +49,3 @@ def send_shell_script(ip,key,username,commands):
         return "success", output
     else:
         return "error", errors, output
-
-with open("/home/ubuntu/keys/MyKeyPair.pem","r") as f:
-    ssh_key = f.read()
-
-#commands = ["sudo apt -y install nginx","sudo nginx"]
-
-#my_ip = "18.219.246.51"
-#print(send_shell_script(my_ip,ssh_key,"ubuntu",commands))
