@@ -1,6 +1,9 @@
 import boto3
 import boto3
 from botocore.config import Config
+from time import sleep
+import io
+import paramiko
 
 def list_hosted_zones(ACCESS_KEY,SECRET_KEY):
     my_config = Config(
@@ -46,9 +49,34 @@ def list_record_sets_user(ACCESS_KEY,SECRET_KEY):
                 record_sets.append(y)
     return record_sets
 
+def launch_instance(ACCESS_KEY,SECRET_KEY,security_group):
+    session = boto3.Session(
+        aws_access_key_id=ACCESS_KEY,
+        aws_secret_access_key=SECRET_KEY,
+    )
+    ec2 = session.resource("ec2")
+    instance = ec2.create_instances(
+        MinCount = 1,
+        MaxCount = 1,
+        ImageId = 'ami-0dd9f0e7df0f0a138',
+        InstanceType = 't2.micro',
+        KeyName = 'MyKeyPair',
+        SecurityGroupIds = [security_group]
+        )
+    instance_id = instance[0].id
+    instance_pub_ip = None
+    while instance_pub_ip == None:
+        instance_info = ec2.Instance(instance_id)
+        instance_pub_ip = instance_info.public_ip_address
+        print("sleeping for 5 seconds")
+        sleep(5)
+    sleep(5)
+    return instance_info.private_ip_address,instance_info.public_ip_address,instance_id
+
 with open("/home/ubuntu/keys/aws_key.txt","r") as f:
     keys = f.read().split("\n")
 ACCESS_KEY = keys[0]
 SECRET_KEY = keys[1]
 
-print(list_record_sets_user(ACCESS_KEY,SECRET_KEY))
+with open("/home/ubuntu/keys/MyKeyPair.pem","r") as f:
+    ssh_key = f.read()
