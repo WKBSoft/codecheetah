@@ -71,27 +71,10 @@ def webserver(github_username, github_repo, hostname, vpc_id, ACCESS_KEY, SECRET
     
     web_server_service = web_server_service.replace("*****replace_with_project_name*****",github_repo)
     
-    github_url = "https://github.com/"+github_username+"/"+github_repo+".git"
-    
     commands = [
-        "sudo apt -y install nginx",
-        "sudo unlink /etc/nginx/sites-enabled/default",
-        "curl https://raw.githubusercontent.com/bellemanwesley/devsite/master/scripts/web_server/nginx-reverse-proxy.conf -o reverse-proxy.conf",
-        "sudo cp reverse-proxy.conf /etc/nginx/sites-available/reverse-proxy.conf",
-        "sudo ln -s /etc/nginx/sites-available/reverse-proxy.conf /etc/nginx/sites-enabled/reverse-proxy.conf",
-        "sudo nginx -s reload",
-        "git clone "+github_url,
-        "sudo apt update",
-        "sudo apt -y install python3-pip",
-        "sudo apt -y install awscli",
-        "pip3 install -r "+github_repo+"requirements.txt",
         "curl https://raw.githubusercontent.com/bellemanwesley/devsite/master/scripts/web_server/initiate_web_server.py -o initiate_web_server.py",
         "mkdir keys",
-        "python3 initiate_web_server.py "+github_repo,
-        "sudo cp website_server.service /etc/systemd/system/website_server.service",
-        "sudo systemctl daemon-reload",
-        "sudo systemctl enable website_server",
-        "sudo systemctl start website_server"
+        "python3 initiate_web_server.py "+github_username+" "+github_repo,
         ]
     sent_script = False
     while not sent_script:
@@ -113,6 +96,8 @@ SECRET_KEY = keys[1]
 
 with open("/home/ubuntu/keys/MyKeyPair.pem","r") as f:
     ssh_key = f.read()
+    
+#print(deploy_code.send_shell_script(ACCESS_KEY,SECRET_KEY,"i-040c4913ca4ff3401",["pwd","touch hello.txt","echo 'hello'"]))
 
 print(
     webserver(
@@ -127,4 +112,3 @@ print(
         "172.31.29.14"
         )
     )
-
