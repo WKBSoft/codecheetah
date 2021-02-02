@@ -30,7 +30,7 @@ git clone *****replace_with_github_url*****;
 sudo apt update;
 sudo apt -y install python3-pip;
 sudo apt -y install awscli;
-pip3 install -r *****github_repo***** requirements.txt;
+pip3 install -r *****replace_with_github_repo*****/requirements.txt;
 sudo cp website_server.service /etc/systemd/system/website_server.service;
 sudo systemctl daemon-reload;
 sudo systemctl enable website_server;
