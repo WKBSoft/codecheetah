@@ -18,4 +18,6 @@ WantedBy=multi-user.target
 '''
 
 systemd_file = systemd_file.replace("*****replace_with_project_name*****",sys.argv[1])
-print(systemd_file)
+
+with open("website_server.service","w+") as f:
+    f.write(systemd_file)
